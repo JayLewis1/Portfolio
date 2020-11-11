@@ -15,13 +15,13 @@
     margin-bottom: 2vh;
     letter-spacing: 1px;
     font-family: $headingFont;
-    color: #33485A;
+    color: $mainColor;
   }
   h5 {
     width: 70%;
     font-size: 1.2rem;
     font-weight: 400;
-    color:#64A5E5;
+    color:$textBlue;
   }
   .button-container {
     margin-top: 5vh;
@@ -78,7 +78,7 @@
     }
     p {
       font-size: 1rem;
-      color: #64A5E5;
+      color: $textBlue;
       text-align: center;
       margin: 25px 0 ;
       z-index: 1;
@@ -93,6 +93,20 @@
       text-decoration: none;
       margin-top: 25px;
       z-index: 1;
+    }
+    button {
+      background-color: $lightBlue;
+      padding: 10px 50px;
+      border-radius: 5px;
+      color: white;
+      font-weight: 400;
+      font-size: 1rem;
+      text-decoration: none;
+      margin-top: 25px;
+      z-index: 1;
+      outline: none;
+      border: none;
+      cursor: pointer;
     }
     .development-background {
       position: absolute;
@@ -129,30 +143,30 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap : 40px;
-.container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  img {
+  .container {
     width: 100%;
-    box-shadow: 2px 4px 10px rgba(0,0,0,0.18);
-  }
-  h6 {
-    font-size: 1.2rem;
-    margin: 25px 0;
-    font-family: $headingFont;
-  }
-  a {
-    background-color: $lightBlue;
-    padding: 10px 50px;
-    border-radius: 5px;
-    color: white;
-    font-weight: 400;
-    font-size: 1rem;
-    text-decoration: none;
-   } 
-  }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      width: 100%;
+      box-shadow: 2px 4px 10px rgba(0,0,0,0.18);
+    }
+    h6 {
+      font-size: 1.2rem;
+      margin: 25px 0;
+      font-family: $headingFont;
+    }
+    a {
+      background-color: $lightBlue;
+      padding: 10px 50px;
+      border-radius: 5px;
+      color: white;
+      font-weight: 400;
+      font-size: 1rem;
+      text-decoration: none;
+    } 
+    }
  } 
 }
 
@@ -165,7 +179,6 @@
   h4 {
     font-size: 2.5rem;
     font-family: $headingFont;
-    // font-weight: 800;
   }
   span {
     display: grid;
@@ -191,7 +204,6 @@
     }
   }
 }
-
 
 .yellow-background {
   position: absolute;
@@ -340,35 +352,7 @@
       margin-bottom: 0px;
     }
   }
-
-// .wwd-container {
-//   .info-container {
-//     img {
-//       width: 70%;
-//     }
-//     .development-background {
-//       position: absolute;
-//       top: -80px;
-//       right: -10px;
-//       z-index: 0;
-//       width: 80%
-//     }
-//     .design-background {
-//       position: absolute;
-//       top: -90px;
-//       right: 15px;
-//       z-index: 0;
-//       width: 80%
-//     }
-//     .cms-background {
-//       position: absolute;
-//       top: -100px;
-//       right: 0px;
-//       z-index: 0;
-//       width: 90%
-//     }
-//   }
-// }
+  
 .home-projects { 
   .projects-home-grid {
     gap : 10px;

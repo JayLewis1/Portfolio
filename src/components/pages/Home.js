@@ -1,6 +1,24 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-export const Home = () => {
+import { Link , withRouter, useHistory } from 'react-router-dom'
+import PropTypes from "prop-types";
+
+// Redux
+import { connect } from "react-redux";
+// Redux Actions
+import { changeServiceType } from "../../redux/actions/services";
+
+
+export const Home = ({ changeServiceType }) => {
+  
+  const history = useHistory();
+
+  const changeService = (e) => {
+    var serviceType =  e.target.value;
+    console.log(serviceType);
+    changeServiceType(serviceType)
+    history.push("/services")
+  }
+
   return (
     <div>
       <div className="yellow-background">
@@ -25,27 +43,27 @@ export const Home = () => {
         <img src="/assets/illustrations/development.svg" alt="Developement Laptop"/>
         <h5>Development</h5>
         <p>Lorem ipsum dolor sit amet, conctetur adipis Cras eleifend, risus ac </p>
-        <Link to="portfolio">
+        <button value="development" onClick={(e) => changeService(e)}>
           Learn More
-        </Link>
+        </button>
       </div>
       <div className="info-container">
       <img src="/assets/illustrations/design-background.svg" alt="Background Bubble" className="design-background"/>
         <img src="/assets/illustrations/design.svg" alt="Design Laptop"/>
         <h5>Design</h5>
         <p>Lorem ipsum dolor sit amet, conctetur adipis Cras eleifend, risus ac </p>
-        <Link to="portfolio">
+        <button value="design" onClick={(e) => changeService(e)}>
           Learn More
-        </Link>
+        </button>
       </div>
       <div className="info-container" id="bottom-info">
       <img src="/assets/illustrations/cms-background.svg" alt="Background Bubble" className="cms-background"/>
         <img src="/assets/illustrations/cms.svg" alt="CMS Laptop"/>
         <h5>CMS</h5>
         <p>Lorem ipsum dolor sit amet, conctetur adipis Cras eleifend, risus ac </p>
-        <Link to="portfolio">
+        <button value="cms" onClick={(e) => changeService(e)}>
           Learn More
-        </Link>
+        </button>
       </div>
    </div>
    <div className="home-projects">
@@ -76,5 +94,8 @@ export const Home = () => {
   )
 }
 
+Home.propTypes = {
+  service: PropTypes.string.isRequired,
+}
 
-export default Home;
+export default connect(null,{ changeServiceType })(withRouter(Home));

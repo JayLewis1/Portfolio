@@ -11,7 +11,7 @@ body {
   padding: 0;
   width: 100%;
   font-family: 'Work Sans', sans-serif;
-  color: #265C7F;
+  color: #02182B;
   overflow-x: hidden;
 }
 
@@ -90,7 +90,7 @@ header .logo {
 
 header .logo a {
   text-decoration: none;
-  color: #33485A;
+  color: #02182B;
 }
 
 header .logo a h2 {
@@ -146,7 +146,7 @@ header nav ul li {
 }
 
 header nav ul li a {
-  color: #33485A;
+  color: #02182B;
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 400;
@@ -273,7 +273,7 @@ header nav ul #contact-button:hover {
             box-shadow: none;
   }
   header nav ul li .active-link {
-    color: #33485A;
+    color: #02182B;
   }
 }
 
@@ -391,7 +391,7 @@ header nav ul #contact-button:hover {
   margin-bottom: 2vh;
   letter-spacing: 1px;
   font-family: "Poppins", sans-serif;
-  color: #33485A;
+  color: #02182B;
 }
 
 .title-container h5 {
@@ -502,6 +502,21 @@ header nav ul #contact-button:hover {
   text-decoration: none;
   margin-top: 25px;
   z-index: 1;
+}
+
+.wwd-container .info-container button {
+  background-color: #399AF8;
+  padding: 10px 50px;
+  border-radius: 5px;
+  color: white;
+  font-weight: 400;
+  font-size: 1rem;
+  text-decoration: none;
+  margin-top: 25px;
+  z-index: 1;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 
 .wwd-container .info-container .development-background {
@@ -625,7 +640,7 @@ header nav ul #contact-button:hover {
   background-color: white;
   padding: 10px 50px;
   border-radius: 5px;
-  color: #33485A;
+  color: #02182B;
   font-weight: 400;
   font-size: 1.2rem;
   text-decoration: none;
@@ -859,7 +874,7 @@ header nav ul #contact-button:hover {
   font-weight: 700;
   margin: auto;
   margin-top: 30px;
-  color: #2B3648;
+  color: #02182B;
   font-family: "Poppins", sans-serif;
 }
 
@@ -895,7 +910,7 @@ header nav ul #contact-button:hover {
   margin: 0 auto;
   margin-bottom: 30px;
   font-size: 1rem;
-  color: #A1C6EA;
+  color: #64A5E5;
 }
 
 .services-container .services-info-grid .info-con ul {
@@ -912,13 +927,13 @@ header nav ul #contact-button:hover {
 }
 
 .services-container .services-info-grid .info-con ul li {
-  color: #A1C6EA;
+  color: #64A5E5;
 }
 
 .services-container .services-info-grid .info-con ul li::before {
   content: "\2022";
   /* \2022 is the CSS Code/unicode for a bullet */
-  color: #33485A;
+  color: #02182B;
   font-weight: bold;
   display: inline-block;
   width: 1em;
@@ -970,7 +985,7 @@ header nav ul #contact-button:hover {
   margin: 0 auto;
   text-align: center;
   background-color: white;
-  color: #399AF8;
+  color: #02182B;
   font-family: "Poppins", sans-serif;
 }
 
@@ -1005,11 +1020,13 @@ header nav ul #contact-button:hover {
 .services-container .services-display .right-con h5 {
   font-size: 1.2rem;
   margin-bottom: 15px;
+  font-family: "Poppins", sans-serif;
 }
 
 .services-container .services-display .right-con p {
   font-size: 1rem;
   margin-bottom: 50px;
+  color: #64A5E5;
 }
 
 .services-container .services-display .right-con a {
@@ -1028,5 +1045,206 @@ header nav ul #contact-button:hover {
 .services-container .scroll-ref {
   width: 100%;
   height: 100px;
+}
+
+@media (max-width: 414px) {
+  .services-container .services-info-grid {
+    margin-top: 80px;
+    margin-bottom: 100px;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .services-container .services-info-grid .info-con img {
+    display: none;
+  }
+  .services-container .services-info-grid .info-con h4 {
+    display: none;
+  }
+  .services-container .services-info-grid .info-con p {
+    display: none;
+  }
+  .services-container .services-info-grid .info-con ul {
+    display: none;
+  }
+  .services-container .services-info-grid .info-con button {
+    font-size: 1.5rem;
+    margin: 0 auto;
+  }
+  .services-container .services-info-grid .info-con #design-btn {
+    background-color: #FF6900;
+  }
+  .services-container .services-info-grid .info-con #cms-btn {
+    background-color: #FAE037;
+    color: #02182B;
+  }
+  .services-container .service-button-con {
+    width: 100%;
+  }
+  .services-container .service-button-con button {
+    color: #02182B;
+    font-size: 1.1rem;
+  }
+  .services-container .service-button-con .active-service {
+    background: none;
+    border-radius: 0;
+    color: #399AF8;
+    border-bottom: 2px solid #399AF8;
+  }
+  .services-container .services-display {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 100%;
+    padding: 30px;
+  }
+  .services-container .services-display .left-con {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .services-container .services-display .left-con img {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .services-container .services-display .right-con {
+    width: 100%;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .services-container .services-display .right-con h5 {
+    margin: 25px auto;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  .services-container .services-display .right-con a {
+    margin: 0 auto;
+    margin-bottom: 25px;
+  }
+  .services-container .scroll-ref {
+    width: 100%;
+    height: 10px;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 786px) {
+  .services-container .services-info-grid {
+    margin-top: 80px;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .services-container .services-info-grid .info-con img {
+    display: none;
+  }
+  .services-container .services-info-grid .info-con h4 {
+    display: none;
+  }
+  .services-container .services-info-grid .info-con p {
+    display: none;
+  }
+  .services-container .services-info-grid .info-con ul {
+    display: none;
+  }
+  .services-container .services-info-grid .info-con button {
+    font-size: 1.5rem;
+    margin: 0 auto;
+  }
+  .services-container .services-info-grid .info-con #design-btn {
+    background-color: #FF6900;
+  }
+  .services-container .services-info-grid .info-con #cms-btn {
+    background-color: #FAE037;
+    color: #02182B;
+  }
+  .services-container .service-button-con {
+    width: 100%;
+  }
+  .services-container .service-button-con button {
+    color: #02182B;
+    font-size: 1.1rem;
+  }
+  .services-container .service-button-con .active-service {
+    background: none;
+    border-radius: 0;
+    color: #399AF8;
+    border-bottom: 2px solid #399AF8;
+  }
+  .services-container .services-display {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 100%;
+    padding: 30px;
+  }
+  .services-container .services-display .left-con {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .services-container .services-display .left-con img {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .services-container .services-display .right-con {
+    width: 100%;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .services-container .services-display .right-con h5 {
+    margin: 25px auto;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  .services-container .services-display .right-con a {
+    margin: 0 auto;
+    margin-bottom: 25px;
+  }
+  .services-container .scroll-ref {
+    width: 100%;
+    height: 10px;
+  }
+}
+
+@media (min-width: 787px) and (max-width: 1100px) {
+  .services-container .services-info-grid {
+    margin-bottom: 150px;
+  }
+  .services-container .services-info-grid .info-con img {
+    width: 60%;
+    margin: 0 auto;
+  }
+  .services-container .services-info-grid .info-con ul {
+    display: none;
+  }
+  .services-container .services-info-grid .info-con button {
+    margin-top: 15px;
+  }
+  .services-container .service-button-con {
+    width: 60%;
+  }
+  .services-container .services-display {
+    height: 100%;
+  }
+  .services-container .scroll-ref {
+    width: 100%;
+    height: 100px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
