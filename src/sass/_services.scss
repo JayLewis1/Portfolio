@@ -1,0 +1,149 @@
+.services-container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  .page-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: auto;
+    margin-top: 30px;
+    color: #2B3648;
+    font-family: $headingFont;
+  }
+  .services-info-grid {
+    width: 100%;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    .info-con {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      h4 {
+        font-size: 1.2rem;
+        font-family: $headingFont;
+        margin: 15px 0;
+      }
+       p {
+         width: 80%;
+         margin: 0 auto;
+         margin-bottom: 30px;
+         font-size: 1rem;
+         color: #A1C6EA;
+       }
+       ul {
+         width: 100%;
+         margin: 0 auto;
+         display: flex;
+         flex-direction: column;
+        list-style: none; 
+         li {
+           color: #A1C6EA;
+         }
+       }
+
+      ul li::before {
+        content: "\2022";  /* \2022 is the CSS Code/unicode for a bullet */
+        color: $mainColor; 
+        font-weight: bold;
+        display: inline-block; 
+        width: 1em; 
+        margin-left: -1em; 
+      }
+      button {
+         background-color: $lightBlue;
+         padding: 10px 0;
+         border: none;
+         border-radius: 5px;
+         color: white;
+         font-weight: 400;
+         font-size: 1rem;
+         text-decoration: none;
+         margin: auto;
+         margin-top: 50px;
+         width: 70%;
+         cursor: pointer;
+         outline: none;
+        font-family: "Work Sans" , sans-serif;
+
+      }
+    }
+  }
+  .service-button-con {
+    width: 50%;
+    height: 40px;
+    margin-top: 150px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    display: flex;
+    .active-service {
+      background-color: $lightBlue;
+      color: white;
+    }
+    button {
+        //  padding: 10px 0;
+         border: none;
+         border-radius: 5px;
+         font-weight: 400;
+         font-size: 1rem;
+         text-decoration: none;
+         width: 150px;
+         cursor: pointer;
+         outline: none;
+         margin: 0 auto;
+         text-align: center;
+         background-color: white;
+         color: $lightBlue;
+         font-family: $headingFont;
+         
+    }
+  }
+  .services-display {
+    width: 100%;
+    height: 450px; 
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.18);
+    background-color: white;
+    margin: 0 auto;
+    display: flex;
+    padding: 50px;
+    z-index: 10;
+    .left-con {
+      width: 30%;
+      img {
+        width: 100%;
+      }
+    }
+    .right-con {
+      width: 70%;
+     padding-left: 50px;
+     h5 {
+       font-size: 1.2rem;
+       margin-bottom: 15px;
+     }
+     p {
+      font-size: 1rem;
+      margin-bottom: 50px;
+     }
+     a {
+      background-color: $orange;
+      padding: 10px 40px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-weight: 400;
+      font-size: 1rem;
+      text-decoration: none;
+      margin: auto;
+      cursor: pointer;
+     }
+    }
+  } 
+  .scroll-ref {
+    width: 100%;
+    height: 100px;
+  }
+
+}
