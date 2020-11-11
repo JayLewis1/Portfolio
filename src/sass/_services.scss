@@ -3,14 +3,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  .page-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin: auto;
-    margin-top: 30px;
-    color: $mainColor;
-    font-family: $headingFont;
-  }
   .services-info-grid {
     width: 100%;
     margin-top: 50px;

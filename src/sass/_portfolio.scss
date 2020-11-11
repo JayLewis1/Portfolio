@@ -1,0 +1,27 @@
+.portfolio-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    .portfolio-grid {
+      margin: 100px 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap : 50px;
+      div {
+        width: 100%;
+        img {
+          width: 100%;
+          box-shadow: 0 0 15px rgba(0,0,0,0.18);
+          cursor: pointer;
+        }
+      }
+    }
+}
+
+@media (max-width: 787px ) {
+  .portfolio-container {
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

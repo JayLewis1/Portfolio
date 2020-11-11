@@ -49,7 +49,7 @@ const Services = ({serviceType , changeServiceType}) => {
       <div className="red-background">
         <img src="/assets/illustrations/page-background-red.svg" alt="Background Bubble Red"/>
       </div>
-  <h4 className="page-title">My Services </h4>
+  <h4 className="page-title">My Services</h4>
       <div className="services-info-grid">
         <div className="info-con">
           <img src="/assets/illustrations/development.svg" alt="Development Illustration"/>

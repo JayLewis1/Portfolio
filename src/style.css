@@ -31,6 +31,15 @@ body {
   position: relative;
 }
 
+.page-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: auto;
+  margin-top: 30px;
+  color: #02182B;
+  font-family: "Poppins", sans-serif;
+}
+
 @media (max-width: 414px) {
   * {
     font-size: 15px;
@@ -869,15 +878,6 @@ header nav ul #contact-button:hover {
           flex-direction: column;
 }
 
-.services-container .page-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin: auto;
-  margin-top: 30px;
-  color: #02182B;
-  font-family: "Poppins", sans-serif;
-}
-
 .services-container .services-info-grid {
   width: 100%;
   margin-top: 50px;
@@ -1245,6 +1245,44 @@ header nav ul #contact-button:hover {
   .services-container .scroll-ref {
     width: 100%;
     height: 100px;
+  }
+}
+
+.portfolio-container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.portfolio-container .portfolio-grid {
+  margin: 100px 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+}
+
+.portfolio-container .portfolio-grid div {
+  width: 100%;
+}
+
+.portfolio-container .portfolio-grid div img {
+  width: 100%;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.18);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+}
+
+@media (max-width: 787px) {
+  .portfolio-container .portfolio-grid {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
   }
 }
 /*# sourceMappingURL=style.css.map */

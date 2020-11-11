@@ -70,12 +70,12 @@ export const Home = ({ changeServiceType }) => {
       <h4>Heres what I've done</h4>
     <div className="projects-home-grid">
       <div className="container"> 
-          <img src="/assets/projects/logic/logic-display.png" alt="Project one - Logic"/>
+          <img src="/assets/projects/logic/logic-display@2x.png" alt="Project one - Logic"/>
           <h6>Logic Trades</h6>
           <a href="/">See the site</a>
       </div>
       <div className="container"> 
-          <img src="/assets/projects/dirt/dirt-display.png" alt="Project one - Logic"/>
+          <img src="/assets/projects/dirt/dirt-display@2x.png" alt="Project one - Logic"/>
           <h6>DIRT</h6>
           <a href="/">See the site</a>
       </div>
