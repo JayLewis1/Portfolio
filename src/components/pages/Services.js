@@ -1,4 +1,4 @@
-import React , { useState, useRef } from 'react'
+import React , { useEffect, useRef } from 'react'
 import PropTypes from "prop-types";
 // Redux
 import { connect } from "react-redux";
@@ -9,23 +9,24 @@ import { changeServiceType } from "../../redux/actions/services";
 import Development from "./services/Development"
 import Design from "./services/Design"
 import Cms from "./services/Cms"
-import { Switch } from 'react-router';
-
-
 
 const Services = ({serviceType , changeServiceType}) => {
   // Declared serviceDisplay as new ref
   const serviceDisplay = useRef(null);
 
+  useEffect(() => {
+    // Scroll to the top when page has been changed
+    // window.scrollTo(0, 0);
+    // Update the document title using the browser API
+    document.title = "Services - Jay Lewis";
+  });
+
   const changeService = (e) => {
     var type = e.target.value;
     // Pass the button's value to the redux function - set's the service state as the value
     changeServiceType(type)
-    // Used ref to scroll ref (div) into view when the service has been chosen
-    serviceDisplay.current.scrollIntoView({ 
-      behavior: "smooth", 
-      block: "nearest"
-   })
+    // Used ref to scroll to displat div into view when the service has been chosen - smooth scroll and center div in screen
+    serviceDisplay.current.scrollIntoView()
   }
 
     // Depending on what service is set into state assign the active button class to the services buttons
@@ -38,6 +39,8 @@ const Services = ({serviceType , changeServiceType}) => {
               break;
       case "cms" :
               var cms =  "active-service";
+              break;
+           default: 
               break;
     }
   
@@ -114,16 +117,17 @@ const Services = ({serviceType , changeServiceType}) => {
          value="cms" 
          onClick={(e) => changeService(e)}>CMS</button>
       </div>
-      {serviceType.type === "development" && <Development />}
-      {serviceType.type === "design" && <Design />}
-      {serviceType.type === "cms" && <Cms />}
-     <div class="scroll-ref" ref={serviceDisplay}></div>
+      <div className="services-display" ref={serviceDisplay} >
+        {serviceType.type === "development" && <Development />}
+        {serviceType.type === "design" && <Design />}
+        {serviceType.type === "cms" && <Cms />}
+      </div>
    </div>
   )
 }
 
 Services.propTypes = {
-  service : PropTypes.string.isRequired,
+  service : PropTypes.object,
 }
 
 const mapStateToProps =  (state) => ({

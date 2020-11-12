@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-size: 18px;
 }
+html {
+  scroll-behavior: smooth; // For Chrome, Edge , Firefox
+}
 body {
   margin: 0;
   padding: 0;

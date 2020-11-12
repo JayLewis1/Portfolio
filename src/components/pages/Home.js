@@ -19,6 +19,12 @@ export const Home = ({ changeServiceType }) => {
     history.push("/services")
   }
 
+  const scrollDown = () => {
+    var jump = document.getElementById("findOutMoreJump");
+    jump.scrollIntoView({behavior: "smooth", block: "center",inline: "center"})
+  }
+
+
   return (
     <div>
       <div className="yellow-background">
@@ -33,11 +39,11 @@ export const Home = ({ changeServiceType }) => {
     <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eleifend</h5>
     <span className="button-container">
       <Link to="/contact" className="get-quote">Get a quote</Link>
-      <span><p>Find out more</p><img src="/assets/icons/arrow-down.svg" alt="arrow down"/></span>
+      <span onClick={scrollDown}><p>Find out more</p><img src="/assets/icons/arrow-down.svg" alt="arrow down"/></span>
     </span>
    </div>
    </div>
-   <div className="wwd-container"> 
+   <div className="wwd-container" id="findOutMoreJump"> 
       <div className="info-container">
           <img src="/assets/illustrations/development-background.svg" alt="Background Bubble" className="development-background"/>
         <img src="/assets/illustrations/development.svg" alt="Developement Laptop"/>
@@ -95,7 +101,7 @@ export const Home = ({ changeServiceType }) => {
 }
 
 Home.propTypes = {
-  service: PropTypes.string.isRequired,
+  service: PropTypes.string,
 }
 
 export default connect(null,{ changeServiceType })(withRouter(Home));

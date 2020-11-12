@@ -1,1 +1,2 @@
 export const CHANGE_SERVICES = "CHANGE_SERVICES";
+export const CHANGE_PROJECT = "CHANGE_PROJECT";

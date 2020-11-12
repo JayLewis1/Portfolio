@@ -1,8 +1,75 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-export const Portfolio = () => {
+import React , { useEffect }from 'react'
+import PropTypes from "prop-types";
+
+// Redux
+import { connect } from "react-redux";
+import { changeProject } from "../../redux/actions/portfolio"
+
+// Project Image Components
+import DirtImg from "./portfolio/dirt/DirtImg";
+import LogicImg from "./portfolio/logic/LogicImg";
+// Project Info Components
+import DirtInfo from "./portfolio/dirt/DirtInfo";
+import LogicInfo from "./portfolio/logic/LogicInfo";
+
+export const Portfolio = ({project, changeProject}) => {
+  
+  useEffect(() => {
+    // Scroll to the top when page has been changed
+    window.scrollTo(0, 0);
+    // Update the document title using the browser API
+    document.title = "Portfolio - Jay Lewis";
+  });
+
+  // Declare an array to hold the project components
+  var whichProjects = [];
+
+  // Project Images - if state has changed then show the selected project
+  if(project.type === "all" || project.type === "dirt") {
+    // Push the component to the array if parameters are met
+    whichProjects.push(<DirtImg />);
+  }
+  if (project.type === "all" || project.type === "logic") {
+     // Push the component to the array if parameters are met
+    whichProjects.push(<LogicImg />);
+  }
+
+   // Project Info - if state has changed then show the selected project info
+  switch(project.type) {
+    case "dirt" :
+       // Push the component to the array if parameters are   met
+          whichProjects.push(<DirtInfo />);
+          break;
+    case "logic" :
+          whichProjects.push(<LogicInfo />);
+          break;
+    default : 
+          break ;
+
+  }
+
+  // Change height of the project image when 
+  var height;
+  if(project.type !== "all") {
+    height = "100%";
+  } else {
+    height = "260px";
+  }
+
+  // switch(project.type) {
+  //   case "all" : 
+  //           height="100%";
+  //           break;
+  //   case "dirt" : 
+  //              height="100%";
+  //           break;
+  //       case "logic" :
+  //               height = "100%";
+  //               break;
+  // }
+
   return (
-   <div class="portfolio-container">
+   <div className="portfolio-container">
       <div className="yellow-background">
         <img src="/assets/illustrations/page-background-yellow.svg" alt="Background Bubble Yellow"/>
       </div>
@@ -11,12 +78,19 @@ export const Portfolio = () => {
       </div>
   <h4 className="page-title">Pervious Work</h4>
   <div className="portfolio-grid">
-    <div><img src="/assets/projects/logic/logic-display@2x.png" alt="Logic Home Page"/></div>
-    <div><img src="/assets/projects/dirt/dirt-display@2x.png" alt="Dirt Home Page"/></div>
+    {whichProjects.map((proj) => <li style={{height: height}} key={whichProjects.indexOf(proj)}>{proj}</li>)}
   </div>
    </div>
   )
 }
 
+Portfolio.propTypes = {
+  project : PropTypes.object.isRequired
+}
 
-export default Portfolio;
+const mapStateToProps = (state) => ({
+  project: state.project
+})
+
+
+export default connect(mapStateToProps, {changeProject})(Portfolio);
