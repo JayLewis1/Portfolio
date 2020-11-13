@@ -19,10 +19,6 @@ app.use(
     origin: [`http://localhost:${PORT}`],
   })
 );
-// // Define Routes
-// app.use("/api/contact" , function(req, res) {
-//   require("./routes/api/contact")
-// });
 
 var transport = {
   host: "smtp.outlook.com",
@@ -73,10 +69,10 @@ app.post('/contact', (req, res , next) => {
 })
 
 
-app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "/client/build")));
 
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+  res.sendFile(path.join(__dirname, "/client/build", "index.html"));
 });
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
