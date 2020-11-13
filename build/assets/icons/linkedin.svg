@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="76" height="74" viewBox="0 0 76 74">
+  <defs>
+    <filter id="Rectangle_826" x="0" y="0" width="76" height="74" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_206" data-name="Group 206" transform="translate(-919 -444)">
+    <g transform="matrix(1, 0, 0, 1, 919, 444)" filter="url(#Rectangle_826)">
+      <rect id="Rectangle_826-2" data-name="Rectangle 826" width="46" height="44" rx="4" transform="translate(15 14)" fill="#399af8"/>
+    </g>
+    <g id="linkedin" transform="translate(946 469)">
+      <path id="Path_369" data-name="Path 369" d="M2.712-.668a2.5,2.5,0,1,0-.063,4.983H2.68A2.5,2.5,0,1,0,2.712-.668Zm0,0" transform="translate(0 0.668)" fill="#fff"/>
+      <path id="Path_370" data-name="Path 370" d="M8.109,198.313H12.9v14.42H8.109Zm0,0" transform="translate(-7.826 -191.361)" fill="#fff"/>
+      <path id="Path_371" data-name="Path 371" d="M230.328,188.625c-2.586,0-4.32,2.43-4.32,2.43v-2.091h-4.793v14.42h4.793v-8.053a3.284,3.284,0,0,1,.158-1.17,2.624,2.624,0,0,1,2.459-1.753c1.734,0,2.428,1.322,2.428,3.261v7.714h4.793v-8.268C235.846,190.686,233.481,188.625,230.328,188.625Zm0,0" transform="translate(-213.486 -182.012)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

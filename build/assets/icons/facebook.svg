@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="76" height="74" viewBox="0 0 76 74">
+  <defs>
+    <filter id="Rectangle_825" x="0" y="0" width="76" height="74" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_205" data-name="Group 205" transform="translate(-845 -444)">
+    <g transform="matrix(1, 0, 0, 1, 845, 444)" filter="url(#Rectangle_825)">
+      <rect id="Rectangle_825-2" data-name="Rectangle 825" width="46" height="44" rx="4" transform="translate(15 14)" fill="#399af8"/>
+    </g>
+    <g id="Group_102" data-name="Group 102" transform="translate(877 467.667)">
+      <path id="Path_65" data-name="Path 65" d="M-19233.217,18486h4.887l.014-10.15h3.465l.57-4.627h-4.035v-2.9a1.434,1.434,0,0,1,.461-.76,2.7,2.7,0,0,1,1.012-.41h2.563v-4.133a18.585,18.585,0,0,0-4.035-.09,4.6,4.6,0,0,0-3.123,1.328,6.609,6.609,0,0,0-1.541,3.09v3.879h-3.605v4.746h3.461Z" transform="translate(19236.939 -18461.863)" fill="#fff"/>
+      <path id="facebook" d="M101.295,24.376l-2.076-.149c-.162,0-3.274-.208-4.533.662A5.8,5.8,0,0,0,92.3,27.781a31.114,31.114,0,0,0-.283,4.907H88.385v5.307h3.422v9.647h.7V37.234h-3.5V33.161h3.5v-3c0-3.477,2.123-5.37,5.224-5.37a28.762,28.762,0,0,1,3.134.16v3.634H98.729c-1.688,0-2.014.8-2.014,1.979v2.6h4.035l-.526,4.072H96.715V47.643h.516V37.659h3.518l.546-4.669V32.5l-4.064.1V29.965s.173-.831.751-.916,3.313,0,3.313,0V24.376Zm2.13-.929" transform="translate(-88.385 -23.447)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
