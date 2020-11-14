@@ -75,7 +75,7 @@ app.post('/contact', (req, res , next) => {
 
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/client/build", "index.html"));
+  res.sendFile(path.join(__dirname, "/build", "index.html"));
 });
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
