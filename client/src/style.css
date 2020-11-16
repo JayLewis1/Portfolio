@@ -1449,6 +1449,124 @@ header nav ul #contact-button:hover:after {
   }
 }
 
+.about-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80%;
+  margin: auto;
+  position: relative;
+}
+
+.about-container .yellow-background {
+  top: 50px;
+}
+
+.about-container .red-background {
+  top: 400px;
+}
+
+.about-container h4 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #02182B;
+  font-family: "Poppins", sans-serif;
+}
+
+.about-container p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #399AF8;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 15px;
+}
+
+.about-container .technologies-con {
+  width: 50%;
+  height: 100px;
+  margin: 100px auto;
+  background-color: white;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.18);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.18);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+}
+
+.about-container .technologies-con span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.about-container .follow-me-con {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about-container .follow-me-con h5 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+}
+
+.about-container .located-con {
+  margin: auto;
+  margin-bottom: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.about-container .located-con h5 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+}
+
+.about-container .located-con img {
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.18);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.18);
+}
+
 .contact-container {
   width: 100%;
   display: -webkit-box;
