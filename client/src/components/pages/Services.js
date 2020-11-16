@@ -26,7 +26,7 @@ const Services = ({serviceType , changeServiceType}) => {
     // Pass the button's value to the redux function - set's the service state as the value
     changeServiceType(type)
     // Used ref to scroll to displat div into view when the service has been chosen - smooth scroll and center div in screen
-    serviceDisplay.current.scrollIntoView()
+   serviceDisplay.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   }
 
     // Depending on what service is set into state assign the active button class to the services buttons
@@ -55,6 +55,7 @@ const Services = ({serviceType , changeServiceType}) => {
   <h4 className="page-title">My Services</h4>
       <div className="services-info-grid">
         <div className="info-con">
+          <img className="develop-background" src="/assets/illustrations/red-back.svg" alt="Background Blob"/>
           <img src="/assets/illustrations/development.svg" alt="Development Illustration"/>
           <h4>Development</h4>
           <p>Lorem ipsum dolor sit amet,conctetur adipis Cras eleifend, risus ac </p>
@@ -71,6 +72,7 @@ const Services = ({serviceType , changeServiceType}) => {
           <button value="development" id="development-btn" onClick={(e) => changeService(e)}>Learn More</button>
         </div>
         <div className="info-con">
+        <img className="design-background" src="/assets/illustrations/blue-back.svg" alt="Background Blob"/>
           <img src="/assets/illustrations/design.svg" alt="Design Illustration"/>
           <h4>Design</h4>
           <p>Lorem ipsum dolor sit amet,conctetur adipis Cras eleifend, risus ac </p>
@@ -87,6 +89,7 @@ const Services = ({serviceType , changeServiceType}) => {
           <button  value="design" id="design-btn" onClick={(e) => changeService(e)}>Learn More</button>
         </div>
         <div className="info-con">
+        <img className="cms-background" src="/assets/illustrations/yellow-back.svg" alt="Background Blob"/>
           <img src="/assets/illustrations/cms.svg" alt="CMS Illustration"/>
           <h4>CMS</h4>
           <p>Lorem ipsum dolor sit amet,conctetur adipis Cras eleifend, risus ac </p>
@@ -107,7 +110,7 @@ const Services = ({serviceType , changeServiceType}) => {
         <button 
           className={develop} 
           value="development" 
-          onClick={(e) => changeService(e)}>Development</button>
+          onClick={(e) => changeService(e)} >Development</button>
         <button
          className={design} 
          value="design" 
@@ -117,11 +120,12 @@ const Services = ({serviceType , changeServiceType}) => {
          value="cms" 
          onClick={(e) => changeService(e)}>CMS</button>
       </div>
-      <div className="services-display" ref={serviceDisplay} >
+      <div className="services-display">
         {serviceType.type === "development" && <Development />}
         {serviceType.type === "design" && <Design />}
         {serviceType.type === "cms" && <Cms />}
       </div>
+      <div  className="scroll-ref" ref={serviceDisplay}></div>
    </div>
   )
 }

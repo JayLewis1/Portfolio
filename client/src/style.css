@@ -205,9 +205,10 @@ header nav ul #contact-button {
   text-decoration: none;
 }
 
-header nav ul #contact-button:hover {
+header nav ul #contact-button:hover:after {
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.18);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.18);
+  width: 0;
 }
 
 @media (max-width: 768px) {
@@ -593,12 +594,51 @@ header nav ul #contact-button:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
-.home-projects .projects-home-grid .container img {
-  width: 100%;
+.home-projects .projects-home-grid .container .img-con {
+  position: relative;
+  height: 263px;
+  overflow: hidden;
+  border-radius: 3px;
   -webkit-box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.18);
           box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.18);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background-color: black;
+  cursor: pointer;
+}
+
+.home-projects .projects-home-grid .container .img-con .project-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  padding: 10px 10px;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.18);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.18);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.home-projects .projects-home-grid .container .img-con img {
+  width: 100%;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.home-projects .projects-home-grid .container .img-con:hover img {
+  opacity: 0.5;
+}
+
+.home-projects .projects-home-grid .container .img-con:hover .project-link {
+  opacity: 1;
 }
 
 .home-projects .projects-home-grid .container h6 {
@@ -821,7 +861,7 @@ header nav ul #contact-button:hover {
     margin-bottom: 0px;
   }
   .home-projects .projects-home-grid {
-    gap: 10px;
+    gap: 20px;
   }
   .home-projects .projects-home-grid .container img {
     width: 80%;
@@ -884,7 +924,7 @@ header nav ul #contact-button:hover {
 
 .services-container .services-info-grid {
   width: 100%;
-  margin-top: 50px;
+  margin-top: 140px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
@@ -901,6 +941,28 @@ header nav ul #contact-button:hover {
       -ms-flex-direction: column;
           flex-direction: column;
   text-align: center;
+  position: relative;
+}
+
+.services-container .services-info-grid .info-con .develop-background {
+  position: absolute;
+  top: -100px;
+  right: 10px;
+  z-index: -1;
+}
+
+.services-container .services-info-grid .info-con .design-background {
+  position: absolute;
+  top: -100px;
+  left: 40px;
+  z-index: -1;
+}
+
+.services-container .services-info-grid .info-con .cms-background {
+  position: absolute;
+  top: -150px;
+  right: -10px;
+  z-index: -1;
 }
 
 .services-container .services-info-grid .info-con h4 {
@@ -1275,8 +1337,6 @@ header nav ul #contact-button:hover {
 .portfolio-container .portfolio-grid li {
   list-style-type: none;
   width: 100%;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
   width: 100%;
   height: 260px;
   border-radius: 5px;
@@ -1309,17 +1369,27 @@ header nav ul #contact-button:hover {
 }
 
 .portfolio-container .portfolio-grid .project-info-con .back-btn {
-  padding: 10px 30px;
+  padding: 10px;
   position: absolute;
-  top: -55px;
-  left: -218px;
+  top: -50px;
+  left: -92px;
   border: none;
   outline: none;
   background: none;
   background-color: #399AF8;
   color: white;
   font-size: 1rem;
-  padding: 10px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.18);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.18);
   border-radius: 3px;
   cursor: pointer;
 }
@@ -1447,23 +1517,71 @@ header nav ul #contact-button:hover {
   margin: 5px auto;
 }
 
-.contact-container .contact-flex form span label, .contact-container .contact-flex .contact-info span label {
+.contact-container .contact-flex form span .label-wrapper, .contact-container .contact-flex .contact-info span .label-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+}
+
+.contact-container .contact-flex form span .label-wrapper label, .contact-container .contact-flex .contact-info span .label-wrapper label {
   font-size: 1rem;
   font-weight: 500;
   font-family: "Poppins", sans-serif;
-  margin-left: 5px;
-  margin-bottom: 3px;
+}
+
+.contact-container .contact-flex form span .label-wrapper .asterix, .contact-container .contact-flex .contact-info span .label-wrapper .asterix {
+  margin-left: auto;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  color: #399AF8;
+}
+
+.contact-container .contact-flex form span .label-wrapper .validation, .contact-container .contact-flex .contact-info span .label-wrapper .validation {
+  margin: 0;
+  margin-left: 10px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #F83939;
+  text-align: left;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  display: none;
+}
+
+.contact-container .contact-flex form span .label-wrapper .show-validation, .contact-container .contact-flex .contact-info span .label-wrapper .show-validation {
+  display: block;
+  margin: 0;
+  margin-left: 10px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #F83939;
+  text-align: left;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .contact-container .contact-flex form span input, .contact-container .contact-flex form span textarea, .contact-container .contact-flex .contact-info span input, .contact-container .contact-flex .contact-info span textarea {
   background-color: #C5E1FD;
   border: 2px #399AF8 solid;
+  border: none;
   border-radius: 3px;
   padding: 8px 5px;
   font-size: 1rem;
   font-weight: 400;
   font-family: "Poppins", sans-serif;
   outline: none;
+}
+
+.contact-container .contact-flex form span input:focus, .contact-container .contact-flex form span textarea:focus, .contact-container .contact-flex .contact-info span input:focus, .contact-container .contact-flex .contact-info span textarea:focus {
+  border: 2px #399AF8 solid;
 }
 
 .contact-container .contact-flex form span input::-webkit-input-placeholder, .contact-container .contact-flex form span textarea::-webkit-input-placeholder, .contact-container .contact-flex .contact-info span input::-webkit-input-placeholder, .contact-container .contact-flex .contact-info span textarea::-webkit-input-placeholder {
@@ -1497,6 +1615,15 @@ header nav ul #contact-button:hover {
 .contact-container .contact-flex form span textarea, .contact-container .contact-flex .contact-info span textarea {
   resize: none;
   height: 150px;
+}
+
+.contact-container .contact-flex form span .input-correct, .contact-container .contact-flex .contact-info span .input-correct {
+  border: 2px #399AF8 solid;
+}
+
+.contact-container .contact-flex form span .input-incorrect, .contact-container .contact-flex .contact-info span .input-incorrect {
+  background-color: #FDC5C5;
+  border: 2px #F83939 solid;
 }
 
 .contact-container .contact-flex form #submit, .contact-container .contact-flex .contact-info #submit {

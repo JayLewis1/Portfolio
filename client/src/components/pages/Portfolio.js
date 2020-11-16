@@ -15,8 +15,6 @@ import LogicInfo from "./portfolio/logic/LogicInfo";
 export const Portfolio = ({project, changeProject}) => {
   
   useEffect(() => {
-    // Scroll to the top when page has been changed
-    window.scrollTo(0, 0);
     // Update the document title using the browser API
     document.title = "Portfolio - Jay Lewis";
   });
@@ -45,29 +43,19 @@ export const Portfolio = ({project, changeProject}) => {
           break;
     default : 
           break ;
-
   }
 
   // Change height of the project image when 
   var height;
+  var transition = "0.5s";
   if(project.type !== "all") {
     height = "100%";
+    transition = "0.9s"
   } else {
     height = "260px";
+    transition = "0s"
   }
-
-  // switch(project.type) {
-  //   case "all" : 
-  //           height="100%";
-  //           break;
-  //   case "dirt" : 
-  //              height="100%";
-  //           break;
-  //       case "logic" :
-  //               height = "100%";
-  //               break;
-  // }
-
+  
   return (
    <div className="portfolio-container">
       <div className="yellow-background">
@@ -78,7 +66,7 @@ export const Portfolio = ({project, changeProject}) => {
       </div>
   <h4 className="page-title">Pervious Work</h4>
   <div className="portfolio-grid">
-    {whichProjects.map((proj) => <li style={{height: height}} key={whichProjects.indexOf(proj)}>{proj}</li>)}
+    {whichProjects.map((proj) => <li style={{height: height, transition : transition}} key={whichProjects.indexOf(proj)}>{proj}</li>)}
   </div>
    </div>
   )

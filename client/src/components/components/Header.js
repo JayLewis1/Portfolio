@@ -74,13 +74,12 @@ const Header = () => {
     />
           </span>
      <nav style={{height : height, display : display } }>
-       {/* <img class="close-cross"src="/assets/icons/cross.svg" alt="Cross"/> */}
        <ul>
-       <li><NavLink to="/" activeClassName="active-link">Home</NavLink></li>
-         <li><NavLink to="/services" activeClassName="active-link">Services</NavLink></li>
-         <li><NavLink to="/portfolio" activeClassName="active-link">Portfolio</NavLink></li>
-         <li><NavLink to="/about" activeClassName="active-link">About</NavLink></li>
-         <li><NavLink to="/contact" id="contact-button">Contact</NavLink></li>
+       <li><NavLink exact to="/" activeClassName="active-link">Home</NavLink></li>
+         <li><NavLink exact to="/services" activeClassName="active-link">Services</NavLink></li>
+         <li><NavLink exact to="/portfolio" activeClassName="active-link">Portfolio</NavLink></li>
+         <li><NavLink exact to="/about" activeClassName="active-link">About</NavLink></li>
+         <li><NavLink exact to="/contact" id="contact-button">Contact</NavLink></li>
        </ul>
      </nav>
    </header>

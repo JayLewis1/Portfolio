@@ -87,8 +87,9 @@ header {
         font-weight: 400;
         text-decoration: none;
       }
-      #contact-button:hover {
+      #contact-button:hover:after {
         box-shadow: 0 0 10px rgba(0,0,0,0.18);
+        width: 0; 
       }
    }
  }
