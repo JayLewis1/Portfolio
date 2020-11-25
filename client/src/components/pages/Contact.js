@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-
-
-var borderSet;
+import PropTypes from "prop-types"
+ 
+// Redux
+import { connect } from "react-redux";
+// Redux Actions
+import { pageName } from "../../redux/actions/pageName";
 
 class Contact extends Component {
   constructor(props) {
@@ -17,6 +20,9 @@ class Contact extends Component {
     this.onSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.pageName("");
+  }
 
   // On entry of form inputs, fill state with input value
   onChange(e) {
@@ -102,12 +108,6 @@ class Contact extends Component {
   render() {
   return (
    <div className="contact-container">
-      <div className="yellow-background">
-        <img src="/assets/illustrations/page-background-yellow.svg" alt="Background Bubble Yellow"/>
-      </div>
-      <div className="red-background">
-        <img src="/assets/illustrations/page-background-red.svg" alt="Background Bubble Red"/>
-      </div>
       <h4 className="page-title">Contact Me</h4>
       <div className="contact-flex">
      <div className="contact-left">
@@ -142,10 +142,10 @@ class Contact extends Component {
         <h5>My Socials</h5> 
           <span className="social-wrapper">
             <a href="/">
-            <img src="/assets/icons/facebook.svg" alt="Facebook Icon"/>
+            <img src="/assets/icons/facebook-circle.svg" alt="Facebook Icon"/>
             </a>
             <a href="/">
-            <img src="/assets/icons/linkedin.svg" alt="LinkedIn Icon"/>
+            <img src="/assets/icons/linkedin-circle.svg" alt="LinkedIn Icon"/>
             </a>
           </span>
        </div>
@@ -156,5 +156,8 @@ class Contact extends Component {
 }
 }
 
+Contact.propTypes = {
+  pageName: PropTypes.func.isRequired
+}
 
-export default Contact;
+export default connect(null, {pageName})(Contact);

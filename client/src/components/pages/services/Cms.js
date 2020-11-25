@@ -3,15 +3,19 @@ import { Link } from "react-router-dom";
 
 const Cms = ()  => {
   return (
-    <Fragment>
-        <div className="left-con">
-          <img src="/assets/illustrations/cms.svg" alt="Service Illustration"/>
-        </div>
-        <div className="right-con">
-          <h5>Cms</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eleifend, risus ac ullamcorper scelerisque, libero ipsum aliquam turpis, ac dapibus velit nisl eu magna. Duis sit amet magna ac risus gravida vehicula eget vel nibh. Morbi diam nisl, placerat et consequat eu, volutpat at velit. Curabitur lacus felis, tempus eget mauris vel, eleifend tempus nibh. Nulla in fringilla diam, sed luctus ligula. Duis maximus nisl risus, id elementum mi convallis eget. Aliquam ac blandit urna, in eleifend ex. Nulla facilisi.</p>
-          <Link to="/contact" className="get-qoute">Get a quote</Link>
-        </div>
+    <Fragment >
+    <div className="left-con">
+    <h5>React</h5>
+        <p>Using Technologies like React I create websites that fit your every need. Working along side you to achieve the best results, I create anything from Portfolios, Blogs to web applications you  may need for your business.</p>
+    </div>
+    <div className="divder-line"></div>
+      <div className="right-con">
+        <h5>Blogs</h5>
+        <p>If you’re wanting to start putting your thoughts or updates of your business on the internet in a centralised hub under your name, I’m here to create a perfect outlet for you providing a bespoke Content Management System where you can update, delete and choose the right content for you.</p>
+      </div>
+      <div className="service-watermark">
+        <img src="/assets/watermarks/cms.svg" alt="Cms Watermark"/>
+      </div>
     </Fragment>
   )
 }

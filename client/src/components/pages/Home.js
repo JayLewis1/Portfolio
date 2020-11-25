@@ -6,15 +6,16 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 // Redux Actions
 import { changeServiceType } from "../../redux/actions/services";
-// Redux Actions
 import { changeProject } from "../../redux/actions/portfolio";
+import { pageName } from "../../redux/actions/pageName";
 
 
-export const Home = ({ changeServiceType , changeProject}) => {
+export const Home = ({ changeServiceType , changeProject, pageName}) => {
   
   useEffect(() => {
     // Update the document title using the browser API
     document.title = "Home - Jay Lewis";
+    pageName("home");
   });
 
   const history = useHistory();
@@ -38,68 +39,70 @@ export const Home = ({ changeServiceType , changeProject}) => {
 
   return (
     <div>
-      <div className="yellow-background">
-        <img src="/assets/illustrations/page-background-yellow.svg" alt="Background Bubble Yellow"/>
-      </div>
-      <div className="red-background">
-        <img src="/assets/illustrations/page-background-red.svg" alt="Background Bubble Red"/>
-      </div>
-    <div className="home-hero-container">
-   <div className="title-container">
-    <h3>I Create fast modern websites for business and personal use</h3>
-    <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eleifend</h5>
-    <span className="button-container">
-      <Link to="/contact" className="get-quote">Get a quote</Link>
-      <span onClick={scrollDown}><p>Find out more</p><img src="/assets/icons/arrow-down.svg" alt="arrow down"/></span>
-    </span>
-   </div>
-   </div>
+      <div className="home-hero-container">
+    <div className="title-container">
+      <h3>Create a beautiful responsive website</h3>
+      <h5>With attracive design and modern development, I'm here to create the perfect website for you.</h5>
+      <span className="button-container">
+        <Link to="/contact" className="get-quote">Get a quote</Link>
+        <span onClick={scrollDown}><p>Find out more</p><img src="/assets/icons/arrow-down.svg" alt="arrow down"/></span>
+      </span>
+    </div>
+    </div>
+    <h4 className="wwd-title">What I Offer</h4>
    <div className="wwd-container" id="findOutMoreJump"> 
       <div className="info-container">
-          <img src="/assets/illustrations/red-background.svg" alt="Background Bubble" className="development-background"/>
-        <img src="/assets/illustrations/development.svg" alt="Developement Laptop"/>
+        <img src="/assets/icons/develop-icon.svg" alt="Developement Icon"/>
         <h5>Development</h5>
-        <p>Lorem ipsum dolor sit amet, conctetur adipis Cras eleifend, risus ac </p>
+        <p>With the use of modern technologies, such as <span className="bold">React</span>, I can create a beautifully built website or web application that fits your needs.</p>
         <button value="development" onClick={(e) => changeService(e)}>
           Learn More
         </button>
       </div>
       <div className="info-container">
-      <img src="/assets/illustrations/blue-background.svg" alt="Background Bubble" className="design-background"/>
-        <img src="/assets/illustrations/design.svg" alt="Design Laptop"/>
+        <img src="/assets/icons/design-icon.svg" alt="Design Icon"/>
         <h5>Design</h5>
-        <p>Lorem ipsum dolor sit amet, conctetur adipis Cras eleifend, risus ac </p>
+        <p>With beautiful design we create a refreshing look for you on the internet.</p>
         <button value="design" onClick={(e) => changeService(e)}>
           Learn More
         </button>
       </div>
       <div className="info-container" id="bottom-info">
-      <img src="/assets/illustrations/yellow-background.svg" alt="Background Bubble" className="cms-background"/>
-        <img src="/assets/illustrations/cms.svg" alt="CMS Laptop"/>
+        <img src="/assets/icons/cms-icon.svg" alt="CMS Icon"/>
         <h5>CMS</h5>
-        <p>Lorem ipsum dolor sit amet, conctetur adipis Cras eleifend, risus ac </p>
+        <p>I supply a bespoke <span className="bold">Content Management System</span> for you to update your site as you please. I Also suppy the option of Wordpress</p>
         <button value="cms" onClick={(e) => changeService(e)}>
           Learn More
         </button>
       </div>
    </div>
    <div className="home-projects">
-      <h4>Heres what I've done</h4>
+      <h4>My Projects</h4>
     <div className="projects-home-grid">
       <div className="container">
+         <h6>Logic Trades</h6>
           <div className='img-con'>
             <Link className='project-link' to='/portfolio' data-value="logic" onClick={(e) => selectProject(e)}>See the project</Link>
           <img src="/assets/projects/logic/logic-site@2x.png" alt="Project one - Logic"/>
           </div>
-          <h6>Logic Trades</h6>
           <a href="/">See the site</a>
       </div>
       <div className="container"> 
-      <div className='img-con'>
-            <Link className='project-link' to='/portfolio' data-value="dirt" onClick={(e) => selectProject(e)}>See the project</Link>
-          <img src="/assets/projects/dirt/dirt-site@2x.png" alt="Project one - Logic"/>
-          </div> 
-          <h6>DIRT</h6>
+        <h6>DIRT</h6>
+        <div className='img-con'>
+              <Link className='project-link' to='/portfolio' data-value="dirt" onClick={(e) => selectProject(e)}>See the project</Link>
+            <img src="/assets/projects/dirt/dirt-site@2x.png" alt="Project one - Logic"/>
+            </div> 
+         
+          <a href="/">See the site</a>
+      </div>
+      <div className="container"> 
+        <h6>Bouncing Borders</h6>
+        <div className='img-con'>
+              <Link className='project-link' to='/portfolio' data-value="dirt" onClick={(e) => selectProject(e)}>See the project</Link>
+            <img src="/assets/projects/bouncing-borders/bb-site@2x.png" alt="Project one - Logic"/>
+            </div> 
+         
           <a href="/">See the site</a>
       </div>
       </div>
@@ -120,6 +123,9 @@ export const Home = ({ changeServiceType , changeProject}) => {
 Home.propTypes = {
   service: PropTypes.object,
   project: PropTypes.object,
+  changeServiceType : PropTypes.func.isRequired,
+  changeProject : PropTypes.func.isRequired,
+  pageName : PropTypes.func.isRequired,
 }
 
-export default connect(null,{ changeServiceType , changeProject})(withRouter(Home));
+export default connect(null,{ changeServiceType , changeProject, pageName})(withRouter(Home));

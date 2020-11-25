@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="22.296" height="17.313" viewBox="0 0 22.296 17.313">
-  <g id="Group_208" data-name="Group 208" transform="translate(-595.234 -239.301)">
-    <path id="Path_213" data-name="Path 213" d="M0,0H19.3" transform="translate(616.03 247.946) rotate(180)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3"/>
-    <path id="Path_214" data-name="Path 214" d="M0,6.536,6.536,0l6.535,6.536" transform="translate(596.734 254.493) rotate(-90)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46">
+  <g id="Group_265" data-name="Group 265" transform="translate(514.747 -794.747) rotate(90)">
+    <circle id="Ellipse_63" data-name="Ellipse 63" cx="23" cy="23" r="23" transform="translate(794.747 468.747)" fill="#367fff"/>
+    <path id="Union_9" data-name="Union 9" d="M5.944,14.829.422,8.787A1.636,1.636,0,0,1,.006,7.768,1.669,1.669,0,0,1,.419,6.5L5.937.46A1.433,1.433,0,0,1,8.085.509a1.762,1.762,0,0,1,.054,2.34l-2.833,3.1H16.969a1.693,1.693,0,1,1,0,3.386H5.309l2.837,3.1a1.763,1.763,0,0,1-.053,2.341,1.52,1.52,0,0,1-1.117.51A1.387,1.387,0,0,1,5.944,14.829Z" transform="translate(809.758 501.089) rotate(-90)" fill="#fff"/>
   </g>
 </svg>

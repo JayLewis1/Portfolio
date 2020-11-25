@@ -1,9 +1,25 @@
 // Variables
 $headingFont : 'Poppins', sans-serif;
-$mainColor : #02182B;
-$textBlue : #64A5E5;
-$lightBlue :#399AF8;
-$orange :#FF6900;
+// $mainColor : #02182B;
+// $textBlue : #64A5E5;
+// $lightBlue :#399AF8;
+// $orange :#FF6900;
+
+$background:#367FFF;
+$heading : #213250;
+$text : #5B83C9;
+$shadow : 2px 4px 20px rgba(36,63,110,0.15);
+$shadowHover :  2px 4px 20px rgba(36,63,110,0.25);
+$buttonHover : #C4D7F8;
+$validation : #F83939;
+
+// $mainColor : #1D207E;
+// $textBlue : #AD7FF8;
+// $lightBlue : #8D4CF7;
+// $orange :#8D4CF7;
+
+
+
 
 @import "./sass/main";
 @import "./sass/header";

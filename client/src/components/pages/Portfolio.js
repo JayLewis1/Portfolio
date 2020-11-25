@@ -4,19 +4,28 @@ import PropTypes from "prop-types";
 // Redux
 import { connect } from "react-redux";
 import { changeProject } from "../../redux/actions/portfolio"
+import { pageName } from "../../redux/actions/pageName";
 
 // Project Image Components
 import DirtImg from "./portfolio/dirt/DirtImg";
 import LogicImg from "./portfolio/logic/LogicImg";
+import BBImg from "./portfolio/bouncing-borders/BBImg";
 // Project Info Components
 import DirtInfo from "./portfolio/dirt/DirtInfo";
 import LogicInfo from "./portfolio/logic/LogicInfo";
+import BBInfo from "./portfolio/bouncing-borders/BBInfo";
 
-export const Portfolio = ({project, changeProject}) => {
+export const Portfolio = ({project, changeProject, pageName}) => {
   
   useEffect(() => {
     // Update the document title using the browser API
     document.title = "Portfolio - Jay Lewis";
+    // If project state isnt set to all then show the background by setting page state
+    if(project.type !== "all") {
+      pageName("portfolio");
+    } else {
+      pageName("");
+    } 
   });
 
   // Declare an array to hold the project components
@@ -31,6 +40,10 @@ export const Portfolio = ({project, changeProject}) => {
      // Push the component to the array if parameters are met
     whichProjects.push(<LogicImg />);
   }
+  if (project.type === "all" || project.type === "bouncing-borders") {
+    // Push the component to the array if parameters are met
+   whichProjects.push(<BBImg />);
+ }
 
    // Project Info - if state has changed then show the selected project info
   switch(project.type) {
@@ -41,11 +54,14 @@ export const Portfolio = ({project, changeProject}) => {
     case "logic" :
           whichProjects.push(<LogicInfo />);
           break;
+    case "bouncing-borders" :
+          whichProjects.push(<BBInfo />);
+          break;
     default : 
-          break ;
+          break;
   }
 
-  // Change height of the project image when 
+  // Change height of the project image when opened
   var height;
   var transition = "0.5s";
   if(project.type !== "all") {
@@ -58,22 +74,17 @@ export const Portfolio = ({project, changeProject}) => {
   
   return (
    <div className="portfolio-container">
-      <div className="yellow-background">
-        <img src="/assets/illustrations/page-background-yellow.svg" alt="Background Bubble Yellow"/>
+      <h4 className="page-title">Previous Work</h4>
+      <div className="portfolio-grid">
+        {whichProjects.map((proj) => <li style={{height: height, transition : transition}} key={whichProjects.indexOf(proj)}>{proj}</li>)}
       </div>
-      <div className="red-background">
-        <img src="/assets/illustrations/page-background-red.svg" alt="Background Bubble Red"/>
-      </div>
-  <h4 className="page-title">Pervious Work</h4>
-  <div className="portfolio-grid">
-    {whichProjects.map((proj) => <li style={{height: height, transition : transition}} key={whichProjects.indexOf(proj)}>{proj}</li>)}
-  </div>
    </div>
   )
 }
 
 Portfolio.propTypes = {
-  project : PropTypes.object.isRequired
+  project : PropTypes.object.isRequired,
+  changeProject : PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
@@ -81,4 +92,4 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, {changeProject})(Portfolio);
+export default connect(mapStateToProps, {changeProject, pageName})(Portfolio);
