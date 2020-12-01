@@ -11,6 +11,9 @@ import Development from "./services/Development"
 import Design from "./services/Design"
 import Cms from "./services/Cms"
 
+// Get in contact component
+import GetInContact from "../components/GetInContact";
+
 const Services = ({serviceType , changeServiceType, pageName}) => {
   // Declared serviceDisplay as new ref
   const serviceDisplay = useRef(null);
@@ -20,7 +23,7 @@ const Services = ({serviceType , changeServiceType, pageName}) => {
     // window.scrollTo(0, 0);
     // Update the document title using the browser API
     document.title = "Services - Jay Lewis";
-    pageName("services");
+    pageName("");
   });
 
   const changeService = (e) => {
@@ -39,11 +42,11 @@ const Services = ({serviceType , changeServiceType, pageName}) => {
               break;
       case "design" :
               var design =  "active-service";
-              var designShadow = "0 2px 20px rgba(0,0,0,0.18)"
+              var designShadow = "0 2px 20px rgba(0,0,0,0.18)";
               break;
       case "cms" :
               var cms =  "active-service";
-              var cmsShadow = "0 2px 20px rgba(0,0,0,0.18)"
+              var cmsShadow = "0 2px 20px rgba(0,0,0,0.18)";
               break;
            default: 
               break;
@@ -53,13 +56,7 @@ const Services = ({serviceType , changeServiceType, pageName}) => {
 
   return (
    <div className="services-container">
-         {/* <div className="yellow-background">
-        <img src="/assets/illustrations/page-background-yellow.svg" alt="Background Bubble Yellow"/>
-      </div>
-      <div className="red-background">
-        <img src="/assets/illustrations/page-background-red.svg" alt="Background Bubble Red"/>
-      </div> */}
-  <h4 className="page-title">My Services</h4>
+    <h4 className="page-title">My Services</h4>
       <div className="services-info-grid">
         <div className="info-con" style={{boxShadow: devShadow}}>
           <img src="/assets/icons/develop-icon.svg" alt="Development Illustration"/>
@@ -67,7 +64,7 @@ const Services = ({serviceType , changeServiceType, pageName}) => {
           <p>With the use of modern technologies, such as <span className="bold">React</span>, I can create a beautifully built website or web application that fits your needs.</p>
        
           {serviceType.type === "development" &&  <button value="development" id="development-btn" onClick={(e) => changeService(e)}>Scroll Down</button>}
-          {serviceType.type !== "development" &&  <button  value="design" id="design-btn" onClick={(e) => changeService(e)}>Learn More</button>}
+          {serviceType.type !== "development" &&  <button value="design" id="design-btn" onClick={(e) => changeService(e)}>Learn More</button>}
 
         </div>
         <div className="info-con" style={{boxShadow: designShadow}}>
@@ -90,11 +87,13 @@ const Services = ({serviceType , changeServiceType, pageName}) => {
 
         </div>
       </div>
+     
+      <div className="services-display">
       <div className="service-button-con">
         <button 
           className={develop} 
           value="development" 
-          onClick={(e) => changeService(e)} >Development</button>
+          onClick={(e) => changeService(e)}>Development</button>
         <button
          className={design} 
          value="design" 
@@ -104,18 +103,21 @@ const Services = ({serviceType , changeServiceType, pageName}) => {
          value="cms" 
          onClick={(e) => changeService(e)}>CMS</button>
       </div>
-      <div className="services-display">
+        <div className="background"></div>
         <div className="hex-left">
                 <img src="/assets/watermarks/hexagon-left.svg" alt="Hexagon"/>
         </div>
         <div className="hex-right">
           <img src="/assets/watermarks/hexagon-right.svg" alt="Hexagon"/>
         </div>
+        <div className="service-content">
         {serviceType.type === "development" && <Development />}
         {serviceType.type === "design" && <Design />}
         {serviceType.type === "cms" && <Cms />}
+        </div>
       </div>
       <div  className="scroll-ref" ref={serviceDisplay}></div>
+      <GetInContact />
    </div>
   )
 }

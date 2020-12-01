@@ -64,60 +64,42 @@ const Header = ({page}) => {
       counter = 0;
     }
   }
-
-  const homeLinks = (
-    <Fragment> 
-      <span className="logo">
-        <Link to="/">
-          <h2>Jay Lewis</h2>
-        </Link>
-     </span>
-      <span className="burger-con">
-          <img src={burgerSrc} alt="Burger Menu - Open Navigation"
-              className="burger-menu"
-              onClick={openMenu}
-              style={{width: burgerWidth}}/>          
-     </span>
-    <nav style={{height : height, display : display } }>
-      <ul>
-      <li><NavLink exact to="/" activeClassName="active-link">Home</NavLink></li>
-        <li><NavLink exact to="/services" activeClassName="active-link">Services</NavLink></li>
-        <li><NavLink exact to="/portfolio" activeClassName="active-link">Portfolio</NavLink></li>
-        <li><NavLink exact to="/about" activeClassName="active-link">About</NavLink></li>
-        <li><NavLink exact to="/contact" id="contact-button"><div className="link-background"></div> <span>Contact</span></NavLink></li>
-      </ul>
-    </nav>
-    </Fragment>
+  const lightLogo = (
+        <span className="logo">
+          <Link to="/">
+            <h2>Jay Lewis</h2>
+          </Link>
+          </span> 
   )
-  const darkLinks = (
-    <Fragment>
-      <span className="logo-dark">
-        <Link to="/">
-          <h2>Jay Lewis</h2>
-        </Link>
-     </span>
-     <span className="burger-con">
+
+  const darkLogo = (
+        <span className="logo-dark">
+          <Link to="/">
+            <h2>Jay Lewis</h2>
+          </Link>
+        </span> 
+  )
+
+  return (
+   <header>
+       {page.page === "home" ?  lightLogo : darkLogo}
+
+        <span className="burger-con">
           <img src={burgerSrc} alt="Burger Menu - Open Navigation"
               className="burger-menu"
               onClick={openMenu}
               style={{width: burgerWidth}}/>          
-     </span>
-      <nav style={{height : height, display : display } }>
+         </span>
+
+       <nav style={{height : height, display : display } }>
         <ul className="darkLinks">
-          <li><NavLink exact to="/" activeClassName="active-link-dark">Home</NavLink></li>
+          <li><NavLink exact to="/" activeClassName="active-link">Home</NavLink></li>
           <li><NavLink exact to="/services" activeClassName="active-link-dark">Services</NavLink></li>
           <li><NavLink exact to="/portfolio" activeClassName="active-link-dark">Portfolio</NavLink></li>
           <li><NavLink exact to="/about" activeClassName="active-link-dark">About</NavLink></li>
           <li><NavLink exact to="/contact" id="contact-button"><div className="link-background"></div> <span>Contact</span></NavLink></li>
         </ul>
       </nav>
-    </Fragment>
-  )
-
-  return (
-   <header>
-       {page.page === "home" && homeLinks}
-       {page.page !== "home" && darkLinks}
    </header>
   )
 }

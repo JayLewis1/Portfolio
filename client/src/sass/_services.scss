@@ -1,4 +1,4 @@
-.services-container {
+.services-container { 
   width: 100%;
   position: relative;
   display: flex;
@@ -65,8 +65,7 @@
   .service-button-con {
     width: 100%;
     height: 40px;
-    margin-top: 230px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     margin-left: auto;
     display: flex;
     .active-service {
@@ -85,7 +84,7 @@
          margin: 0 auto;
          text-align: center;
          background: none;      
-         color: $heading;
+         color: $background;
          font-family: $headingFont;
          display: flex;
          align-items: center;
@@ -95,13 +94,24 @@
   }
   .services-display {
     width: 100%;
-    height: 490px; 
-    border-radius: 5px;
+    height: 100%; 
     margin: 0 auto;
+    margin-top : 200px;
     display: flex;
-    // padding-top: 100px ;
+    flex-direction: column;
+    padding-top: 15px;
+    padding-bottom: 25px;
     z-index: 10;
     position: relative;
+    .background {
+      position: absolute;
+      top: 0;
+      left: -50vw;
+      width: 150vw;
+      height: 100%;
+      background-color: $heading;
+      z-index: -5;
+    }
     .hex-left {
       position: absolute;
       top: -240px;
@@ -123,12 +133,16 @@
       position: relative;
       img {
         position: absolute;
-        top: -40px;
+        top: -20px;
         left: -20px;
         width: 180px;
         opacity: 0.1;
       }
     }
+    .service-content {
+      display: flex;
+      width: 100%;
+
     .right-con , .left-con {
       width: 40%;
       padding-right: 50px ;
@@ -160,10 +174,11 @@
       cursor: pointer;
      }
     }
+   }
   } 
   .scroll-ref {
     width: 100%;
-    height: 100px;
+    height: 10px;
   }
 
 }
@@ -186,10 +201,10 @@
       }
      }
 
-    .service-button-con {
-      margin-top: 130px ;
-      margin-bottom: 30px;
-      }
+    // .service-button-con {
+    //   margin-top: 130px ;
+    //   margin-bottom: 30px;
+    //   }
     .services-display {
       flex-direction: column;
       height: 100%;
@@ -197,6 +212,7 @@
       .hex-left, .hex-right {
       display: none;
       }
+      .service-content {
       .left-con, .right-con {
         width: 100%;
         padding: 0;
@@ -214,6 +230,7 @@
       top: -400px;
       right: -170px;
     }
+  }
  }
 }
 
@@ -236,10 +253,10 @@
         }
       }
     }
-    .service-button-con {
-      margin-top: 130px ;
-      margin-bottom: 30px;
-      }
+    // .service-button-con {
+    //   margin-top: 130px ;
+    //   margin-bottom: 30px;
+    //   }
     .services-display {
       flex-direction: column;
       height: 100%;
@@ -247,6 +264,7 @@
       .hex-left, .hex-right {
       display: none;
       }
+      .service-content {
       .left-con {
         width: 100%;
         img {
@@ -260,6 +278,7 @@
       .divder-line {
         display: none;
       }
+    }
     }
     .scroll-ref {
       width: 100%;
@@ -290,9 +309,9 @@
         }
       }
     }
-    .service-button-con {
-      margin-top: 160px ;
-      }
+    // .service-button-con {
+    //   margin-top: 160px ;
+    //   }
     .services-display {
       flex-direction: column;
       height: 100%;
@@ -300,6 +319,7 @@
       .hex-left, .hex-right {
       display: none;
       }
+      .service-content {
       .left-con {
         width: 100%;
         img {
@@ -313,6 +333,7 @@
       .divder-line {
         display: none;
       }
+    }
     }
     .scroll-ref {
       width: 100%;
@@ -336,9 +357,9 @@
         }
       }
     }
-    .service-button-con {
-      margin-top: 150px ;
-      }
+    // .service-button-con {
+    //   margin-top: 150px ;
+    //   }
   }
 }
   

@@ -9,6 +9,8 @@ import { changeServiceType } from "../../redux/actions/services";
 import { changeProject } from "../../redux/actions/portfolio";
 import { pageName } from "../../redux/actions/pageName";
 
+// Get in contact component
+import GetInContact from "../components/GetInContact";
 
 export const Home = ({ changeServiceType , changeProject, pageName}) => {
   
@@ -22,12 +24,17 @@ export const Home = ({ changeServiceType , changeProject, pageName}) => {
 
   const scrollDown = () => {
     var jump = document.getElementById("findOutMoreJump");
-    jump.scrollIntoView({behavior: "smooth", block: "center",inline: "center"})
+    
+    if(window.width > 433) {
+      jump.scrollIntoView({behavior: "smooth", block: "center",inline: "center"})
+    } else {
+      jump.scrollIntoView({behavior: "smooth", block: "start",inline: "center"})
+    }
+
   }
 
   const changeService = (e) => {
     var serviceType =  e.target.value;
-    console.log(serviceType);
     changeServiceType(serviceType)
     history.push("/services")
   }
@@ -40,6 +47,7 @@ export const Home = ({ changeServiceType , changeProject, pageName}) => {
   return (
     <div>
       <div className="home-hero-container">
+        <div className="background"></div>
     <div className="title-container">
       <h3>Create a beautiful responsive website</h3>
       <h5>With attracive design and modern development, I'm here to create the perfect website for you.</h5>
@@ -49,8 +57,8 @@ export const Home = ({ changeServiceType , changeProject, pageName}) => {
       </span>
     </div>
     </div>
-    <h4 className="wwd-title">What I Offer</h4>
-   <div className="wwd-container" id="findOutMoreJump"> 
+    <h4  className="wwd-title">What I Offer</h4>
+   <div  id="findOutMoreJump" className="wwd-container"> 
       <div className="info-container">
         <img src="/assets/icons/develop-icon.svg" alt="Developement Icon"/>
         <h5>Development</h5>
@@ -107,7 +115,8 @@ export const Home = ({ changeServiceType , changeProject, pageName}) => {
       </div>
       </div>
     </div>
-    <div className="get-in-contact"> 
+    <GetInContact />
+    {/* <div className="get-in-contact"> 
       <h4>Get in contact</h4>
       <span>
         <Link to="/services"> Learn more</Link>
@@ -115,7 +124,7 @@ export const Home = ({ changeServiceType , changeProject, pageName}) => {
         Contact
         </Link>
       </span>
-    </div>
+    </div> */}
    </div>
   )
 }

@@ -1,7 +1,18 @@
 .home-hero-container {
-  height:600px;
+  height:100%;
+  padding-bottom: 160px;
   display: flex;
   margin-bottom: 0px;
+  position: relative;
+  .background {
+    position: absolute;
+    top: -70px;
+    left: -50vw;
+    width: 150vw;
+    height: 100%;
+    background-color: $background;
+    z-index: -1;
+  }
 }
 .title-container {
   width: 90%;
@@ -239,10 +250,13 @@
       color: $background;
      }
   }
+  a:hover .container {
+    box-shadow: $shadowHover;
+   }
  } 
- .container:hover {
-  box-shadow: $shadowHover;
- }
+//  .container:hover {
+//   box-shadow: $shadowHover;
+//  }
 }
 .get-in-contact {
   display: flex;
@@ -315,7 +329,7 @@
 
 @media (max-width: 414px ) {
   .home-hero-container {
-    height: calc(100vh - 70px);
+    height: calc(100vh);
     display: flex;
     margin-bottom: 50px;
   }
@@ -430,7 +444,7 @@
 
 @media (min-width: 415px ) and (max-width: 577px) {
   .home-hero-container {
-    height:calc(100vh - 70px);
+    height:calc(100vh);
     // margin-bottom: 50px;
   }
   .title-container {
@@ -496,9 +510,9 @@
 }
 
 @media (min-width: 578px ) and (max-width: 786px) {
-  .home-hero-container {
-    height:530px;
-  }
+  // .home-hero-container {
+  //   height:530px;
+  // }
   .title-container {
     width: 100%;
     margin-top: 50px;
@@ -558,10 +572,10 @@
 }
 
 @media (min-width: 787px ) and (max-width: 1100px) {
-  .home-hero-container {
-    height:100%;
-    margin-bottom: 200px;
-  }
+  // .home-hero-container {
+  //   height:100%;
+  //   margin-bottom: 200px;
+  // }
   .title-container {
     width: 100%;
     margin-top: 50px;

@@ -9,13 +9,13 @@ const Background = ({page}) => {
             page.page === "home" &&  <div className="home-background">
             </div>
           }
-           {
+           {/* {
             page.page === "services" &&  <div className="services-background">
             </div>
-          }
-           {
+          } */}
+           {/* {
             page.page === "portfolio" &&  <div className="portfolio-background"></div>
-          }
+          } */}
            {
             page.page === "about" &&  <div className="about-background"></div>
           }

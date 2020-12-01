@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 // Redux
 import { connect } from "react-redux";
 import { changeProject } from "../../redux/actions/portfolio"
-import { pageName } from "../../redux/actions/pageName";
 
 // Project Image Components
 import DirtImg from "./portfolio/dirt/DirtImg";
@@ -15,17 +14,14 @@ import DirtInfo from "./portfolio/dirt/DirtInfo";
 import LogicInfo from "./portfolio/logic/LogicInfo";
 import BBInfo from "./portfolio/bouncing-borders/BBInfo";
 
-export const Portfolio = ({project, changeProject, pageName}) => {
+// Get in contact component
+import GetInContact from "../components/GetInContact";
+
+export const Portfolio = ({project, changeProject,}) => {
   
   useEffect(() => {
     // Update the document title using the browser API
     document.title = "Portfolio - Jay Lewis";
-    // If project state isnt set to all then show the background by setting page state
-    if(project.type !== "all") {
-      pageName("portfolio");
-    } else {
-      pageName("");
-    } 
   });
 
   // Declare an array to hold the project components
@@ -78,6 +74,7 @@ export const Portfolio = ({project, changeProject, pageName}) => {
       <div className="portfolio-grid">
         {whichProjects.map((proj) => <li style={{height: height, transition : transition}} key={whichProjects.indexOf(proj)}>{proj}</li>)}
       </div>
+      <GetInContact />
    </div>
   )
 }
@@ -92,4 +89,4 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, {changeProject, pageName})(Portfolio);
+export default connect(mapStateToProps, {changeProject})(Portfolio);

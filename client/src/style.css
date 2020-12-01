@@ -452,7 +452,6 @@ header nav ul #contact-button:hover:after {
   display: -ms-flexbox;
   display: flex;
   height: 300px;
-  margin-top: 100px;
 }
 
 .footer .footer-nav, .footer .footer-services {
@@ -536,11 +535,23 @@ header nav ul #contact-button:hover:after {
 }
 
 .home-hero-container {
-  height: 600px;
+  height: 100%;
+  padding-bottom: 160px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 0px;
+  position: relative;
+}
+
+.home-hero-container .background {
+  position: absolute;
+  top: -70px;
+  left: -50vw;
+  width: 150vw;
+  height: 100%;
+  background-color: #367FFF;
+  z-index: -1;
 }
 
 .title-container {
@@ -850,7 +861,7 @@ header nav ul #contact-button:hover:after {
   color: #367FFF;
 }
 
-.home-projects .container:hover {
+.home-projects .projects-home-grid a:hover .container {
   -webkit-box-shadow: 2px 4px 20px rgba(36, 63, 110, 0.25);
           box-shadow: 2px 4px 20px rgba(36, 63, 110, 0.25);
 }
@@ -947,7 +958,7 @@ header nav ul #contact-button:hover:after {
 
 @media (max-width: 414px) {
   .home-hero-container {
-    height: calc(100vh - 70px);
+    height: calc(100vh);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1070,7 +1081,7 @@ header nav ul #contact-button:hover:after {
 
 @media (min-width: 415px) and (max-width: 577px) {
   .home-hero-container {
-    height: calc(100vh - 70px);
+    height: calc(100vh);
   }
   .title-container {
     width: 100%;
@@ -1133,9 +1144,6 @@ header nav ul #contact-button:hover:after {
 }
 
 @media (min-width: 578px) and (max-width: 786px) {
-  .home-hero-container {
-    height: 530px;
-  }
   .title-container {
     width: 100%;
     margin-top: 50px;
@@ -1193,10 +1201,6 @@ header nav ul #contact-button:hover:after {
 }
 
 @media (min-width: 787px) and (max-width: 1100px) {
-  .home-hero-container {
-    height: 100%;
-    margin-bottom: 200px;
-  }
   .title-container {
     width: 100%;
     margin-top: 50px;
@@ -1353,8 +1357,7 @@ header nav ul #contact-button:hover:after {
 .services-container .service-button-con {
   width: 100%;
   height: 40px;
-  margin-top: 230px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   margin-left: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1378,7 +1381,7 @@ header nav ul #contact-button:hover:after {
   margin: 0 auto;
   text-align: center;
   background: none;
-  color: #213250;
+  color: #367FFF;
   font-family: "Poppins", sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1394,14 +1397,30 @@ header nav ul #contact-button:hover:after {
 
 .services-container .services-display {
   width: 100%;
-  height: 490px;
-  border-radius: 5px;
+  height: 100%;
   margin: 0 auto;
+  margin-top: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 15px;
+  padding-bottom: 25px;
   z-index: 10;
   position: relative;
+}
+
+.services-container .services-display .background {
+  position: absolute;
+  top: 0;
+  left: -50vw;
+  width: 150vw;
+  height: 100%;
+  background-color: #213250;
+  z-index: -5;
 }
 
 .services-container .services-display .hex-left {
@@ -1430,18 +1449,25 @@ header nav ul #contact-button:hover:after {
 
 .services-container .services-display .service-watermark img {
   position: absolute;
-  top: -40px;
+  top: -20px;
   left: -20px;
   width: 180px;
   opacity: 0.1;
 }
 
-.services-container .services-display .right-con, .services-container .services-display .left-con {
+.services-container .services-display .service-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.services-container .services-display .service-content .right-con, .services-container .services-display .service-content .left-con {
   width: 40%;
   padding-right: 50px;
 }
 
-.services-container .services-display .right-con h5, .services-container .services-display .left-con h5 {
+.services-container .services-display .service-content .right-con h5, .services-container .services-display .service-content .left-con h5 {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 15px;
@@ -1449,7 +1475,7 @@ header nav ul #contact-button:hover:after {
   color: white;
 }
 
-.services-container .services-display .right-con p, .services-container .services-display .left-con p {
+.services-container .services-display .service-content .right-con p, .services-container .services-display .service-content .left-con p {
   font-size: 1rem;
   font-weight: 400;
   line-height: 26px;
@@ -1458,7 +1484,7 @@ header nav ul #contact-button:hover:after {
   color: white;
 }
 
-.services-container .services-display .right-con a, .services-container .services-display .left-con a {
+.services-container .services-display .service-content .right-con a, .services-container .services-display .service-content .left-con a {
   background-color: #367FFF;
   padding: 10px 40px;
   border: none;
@@ -1473,7 +1499,7 @@ header nav ul #contact-button:hover:after {
 
 .services-container .scroll-ref {
   width: 100%;
-  height: 100px;
+  height: 10px;
 }
 
 @media (max-width: 414px) {
@@ -1496,10 +1522,6 @@ header nav ul #contact-button:hover:after {
   .services-container .services-info-grid .info-con p {
     display: none;
   }
-  .services-container .service-button-con {
-    margin-top: 130px;
-    margin-bottom: 30px;
-  }
   .services-container .services-display {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1511,18 +1533,18 @@ header nav ul #contact-button:hover:after {
   .services-container .services-display .hex-left, .services-container .services-display .hex-right {
     display: none;
   }
-  .services-container .services-display .left-con, .services-container .services-display .right-con {
+  .services-container .services-display .service-content .left-con, .services-container .services-display .service-content .right-con {
     width: 100%;
     padding: 0;
   }
-  .services-container .services-display .divder-line {
+  .services-container .services-display .service-content .divder-line {
     display: none;
   }
-  .services-container .scroll-ref {
+  .services-container .services-display .scroll-ref {
     width: 100%;
     height: 10px;
   }
-  .services-container .service-watermark {
+  .services-container .services-display .service-watermark {
     position: absolute;
     top: -400px;
     right: -170px;
@@ -1549,10 +1571,6 @@ header nav ul #contact-button:hover:after {
   .services-container .services-info-grid .info-con p {
     display: none;
   }
-  .services-container .service-button-con {
-    margin-top: 130px;
-    margin-bottom: 30px;
-  }
   .services-container .services-display {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1564,17 +1582,17 @@ header nav ul #contact-button:hover:after {
   .services-container .services-display .hex-left, .services-container .services-display .hex-right {
     display: none;
   }
-  .services-container .services-display .left-con {
+  .services-container .services-display .service-content .left-con {
     width: 100%;
   }
-  .services-container .services-display .left-con img {
+  .services-container .services-display .service-content .left-con img {
     width: 80%;
     margin: 0 auto;
   }
-  .services-container .services-display .right-con {
+  .services-container .services-display .service-content .right-con {
     width: 100%;
   }
-  .services-container .services-display .divder-line {
+  .services-container .services-display .service-content .divder-line {
     display: none;
   }
   .services-container .scroll-ref {
@@ -1608,9 +1626,6 @@ header nav ul #contact-button:hover:after {
   .services-container .services-info-grid .info-con p {
     display: none;
   }
-  .services-container .service-button-con {
-    margin-top: 160px;
-  }
   .services-container .services-display {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1622,17 +1637,17 @@ header nav ul #contact-button:hover:after {
   .services-container .services-display .hex-left, .services-container .services-display .hex-right {
     display: none;
   }
-  .services-container .services-display .left-con {
+  .services-container .services-display .service-content .left-con {
     width: 100%;
   }
-  .services-container .services-display .left-con img {
+  .services-container .services-display .service-content .left-con img {
     width: 80%;
     margin: 0 auto;
   }
-  .services-container .services-display .right-con {
+  .services-container .services-display .service-content .right-con {
     width: 100%;
   }
-  .services-container .services-display .divder-line {
+  .services-container .services-display .service-content .divder-line {
     display: none;
   }
   .services-container .scroll-ref {
@@ -1653,9 +1668,6 @@ header nav ul #contact-button:hover:after {
   .services-container .services-info-grid .info-con button {
     width: 90%;
   }
-  .services-container .service-button-con {
-    margin-top: 150px;
-  }
 }
 
 .portfolio-container {
@@ -1667,11 +1679,10 @@ header nav ul #contact-button:hover:after {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-bottom: 200px;
 }
 
 .portfolio-container .portfolio-grid {
-  margin: 100px 0;
+  margin-top: 100px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[2];
@@ -1682,11 +1693,16 @@ header nav ul #contact-button:hover:after {
 .portfolio-container .portfolio-grid li {
   list-style-type: none;
   width: 100%;
-  width: 100%;
-  height: 260px;
   border-radius: 5px;
   -webkit-transition: height 0.5s;
   transition: height 0.5s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .portfolio-container .portfolio-grid .project-img-con {
@@ -1716,7 +1732,13 @@ header nav ul #contact-button:hover:after {
   position: relative;
   -ms-grid-column: 2;
   grid-column: 2;
-  height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100%;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -1792,18 +1814,30 @@ header nav ul #contact-button:hover:after {
   text-decoration: none;
   -webkit-box-shadow: 2px 4px 30px rgba(29, 32, 126, 0.17);
           box-shadow: 2px 4px 30px rgba(29, 32, 126, 0.17);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .portfolio-container .portfolio-grid .project-info-con span a:hover {
-  -webkit-box-shadow: 2px 4px 30px rgba(29, 32, 126, 0.5);
-          box-shadow: 2px 4px 30px rgba(29, 32, 126, 0.5);
+  background-color: #C4D7F8;
+  color: #367FFF;
 }
 
 .portfolio-container .portfolio-grid .project-info-con .text-bottom {
   margin-top: 260px;
   position: relative;
+  z-index: 0;
+  padding-top: 50px;
+}
+
+.portfolio-container .portfolio-grid .project-info-con .text-bottom .background-con {
+  position: absolute;
+  top: 0;
+  left: -60vw;
+  width: 110vw;
+  height: 350px;
+  background-color: #213250;
+  z-index: -5;
 }
 
 .portfolio-container .portfolio-grid .project-info-con .text-bottom .hex-left {
@@ -1849,8 +1883,18 @@ header nav ul #contact-button:hover:after {
   text-decoration: none;
   -webkit-box-shadow: 2px 4px 30px rgba(29, 32, 126, 0.17);
           box-shadow: 2px 4px 30px rgba(29, 32, 126, 0.17);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.portfolio-container .portfolio-grid .project-info-con .text-bottom a:hover {
+  background-color: #C4D7F8;
+  color: #367FFF;
+}
+
+.portfolio-container .portfolio-grid .project-info-con .text-bottom a:active {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 @media (max-width: 414px) {
@@ -1919,9 +1963,6 @@ header nav ul #contact-button:hover:after {
 }
 
 @media (min-width: 787px) and (max-width: 1100px) {
-  .portfolio-container {
-    margin-bottom: 370px;
-  }
   .portfolio-container .portfolio-grid .project-info-con .text-bottom {
     margin-top: 18vw;
   }
@@ -1956,11 +1997,17 @@ header nav ul #contact-button:hover:after {
 }
 
 .about-container .about-wrapper .img-portrait {
-  width: 200px;
-  height: 200px;
+  width: 277px;
+  height: 253px;
   -webkit-box-shadow: 2px 4px 30px rgba(29, 32, 126, 0.17);
           box-shadow: 2px 4px 30px rgba(29, 32, 126, 0.17);
   margin: auto;
+  border-radius: 25px;
+}
+
+.about-container .about-wrapper .img-portrait img {
+  width: 100%;
+  height: 100%;
   border-radius: 25px;
 }
 
@@ -2027,12 +2074,25 @@ header nav ul #contact-button:hover:after {
   display: -ms-flexbox;
   display: flex;
   position: relative;
+  height: 100%;
+  padding-bottom: 40px;
+}
+
+.about-container .technologies .background {
+  position: absolute;
+  top: 0;
+  left: -50vw;
+  width: 150vw;
+  height: 100%;
+  background-color: #367FFF;
+  z-index: -1;
 }
 
 .about-container .technologies .hex-left {
   position: absolute;
   top: -250px;
   left: -600px;
+  z-index: 1;
 }
 
 .about-container .technologies .hex-left img {
@@ -2044,6 +2104,7 @@ header nav ul #contact-button:hover:after {
   position: absolute;
   top: 40px;
   right: -600px;
+  z-index: 1;
 }
 
 .about-container .technologies .text-wrapper {
@@ -2074,11 +2135,11 @@ header nav ul #contact-button:hover:after {
   margin-top: 20px;
   margin-left: 100px;
   opacity: 0.2;
+  z-index: 0;
 }
 
 .about-container .located-con {
   margin: auto;
-  margin-bottom: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2137,7 +2198,6 @@ header nav ul #contact-button:hover:after {
   }
   .about-container .technologies {
     margin-top: 0px;
-    height: 600px;
   }
   .about-container .technologies .hex-left, .about-container .technologies .hex-right {
     display: none;
@@ -2189,7 +2249,6 @@ header nav ul #contact-button:hover:after {
   }
   .about-container .technologies {
     margin-top: 0px;
-    height: 400px;
   }
   .about-container .technologies .hex-left, .about-container .technologies .hex-right {
     display: none;
@@ -2241,7 +2300,6 @@ header nav ul #contact-button:hover:after {
   }
   .about-container .technologies {
     margin-top: 0px;
-    height: 400px;
   }
   .about-container .technologies .hex-left, .about-container .technologies .hex-right {
     display: none;

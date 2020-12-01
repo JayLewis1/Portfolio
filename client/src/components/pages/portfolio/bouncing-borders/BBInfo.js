@@ -30,7 +30,8 @@ const BBInfo = ({changeProject, pageName}) => {
           </span>
         </div>
         <div className="text-bottom">  
-        <div className="hex-left">
+          <div className="background-con"></div>
+          <div className="hex-left">
               <img src="/assets/watermarks/hexagon-left.svg"  alt="Hexagon"/>
             </div>
             <div className="hex-right">

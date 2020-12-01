@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 // Redux Actions
 import { pageName } from "../../redux/actions/pageName";
 
+// Get in contact component
+import GetInContact from "../components/GetInContact";
 
 export const About = ({pageName}) => {
   useEffect(() => {
@@ -15,25 +17,13 @@ export const About = ({pageName}) => {
 
   return (
    <div className="about-container">
-        {/* <div className="yellow-background">
-        <img src="/assets/illustrations/page-background-yellow.svg" alt="Background Bubble Yellow"/>
-      </div>
-      <div className="red-background">
-        <img src="/assets/illustrations/page-background-red.svg" alt="Background Bubble Red"/>
-      </div> */}
-
       <h4>About Me</h4>
       <div className="about-wrapper">
-        <div className="img-portrait"></div>
+        <div className="img-portrait">
+          <img src="/assets/photos/me@2x.png" alt="Photo of me"/>
+        </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eleifend, risus ac ullamcorper scelerisque, libero ipsum aliquam turpis, ac dapibus velit nisl eu magna. Duis sit amet magna ac risus gravida vehicula eget vel nibh. Morbi diam nisl, placerat et consequat eu, volutpat at velit. Curabitur lacus felis, tempus eget mauris vel, eleifend tempus nibh. Nulla in </p>
       </div>
-      {/* <div className='technologies-con'>
-       <span><img src="/assets/icons/html.svg" alt="Html icon"/></span>
-       <span><img src="/assets/icons/css.svg" alt="Css icon"/></span>
-       <span><img src="/assets/icons/react.svg" alt="React icon"/>
-       </span>
-       <span><img src="/assets/icons/wordpress.svg" alt="Wordpress icon"/> </span>
-      </div> */}
       <div className="follow-me-con">
         <h5>Follow me here</h5>
         <span>
@@ -46,6 +36,7 @@ export const About = ({pageName}) => {
         </span>
       </div>
       <div className="technologies">
+      <div className="background"></div>
       <div className="hex-left">
                 <img src="/assets/watermarks/hexagon-left.svg" alt="Hexagon"/>
         </div>
@@ -66,10 +57,7 @@ export const About = ({pageName}) => {
           <p>I’m located in the Bristol area but that does not limit me due to the use of video calling and messaging where I can keep in regular contact with you throughout the project and after for any tutorials or maintenance.  </p>
           <img src="/assets/map/map.svg" alt="Located in Chepstow/Bristol Area"/>
         </div>
-      {/* <div className="located-con">
-          <h5>Located Here</h5>
-          <img src="/assets/map/map.svg" alt="Located in Chepstow/Bristol Area"/>
-      </div> */}
+        <GetInContact />
    </div>
   )
 }

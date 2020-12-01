@@ -1,4 +1,4 @@
-import React , { useEffect } from 'react';
+import React, {useEffect} from 'react';
 // Redux 
 import { connect } from "react-redux";
 // Redux Action
@@ -6,9 +6,10 @@ import { changeProject } from "../../../../redux/actions/portfolio";
 import { pageName } from "../../../../redux/actions/pageName";
 
 const LogicInfo = ({changeProject, pageName}) => {
+
   useEffect(() => {
-    pageName("portfolio");
-  })
+  console.log("hello");
+  });
 
   const backToProjects = () => {
     changeProject("all");
@@ -30,7 +31,8 @@ const LogicInfo = ({changeProject, pageName}) => {
          </span>
          </div>
          <div className="text-bottom">  
-         <div className="hex-left">
+          <div className="background-con"></div>
+          <div className="hex-left">
               <img src="/assets/watermarks/hexagon-left.svg"  alt="Hexagon"/>
             </div>
             <div className="hex-right">
@@ -42,7 +44,6 @@ const LogicInfo = ({changeProject, pageName}) => {
             </p>
             <a href="/contact">Get in contact</a>
           </div>
-    
       </div>
   )
 }
