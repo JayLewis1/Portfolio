@@ -7,7 +7,7 @@ const creds = require("./config/config");
 const cors = require("cors");
 const path = require("path");
 
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 // Init Middleware
 app.use(express.json({ extended: false }));
@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(
   cors({
     credentials: true,
-    origin: [`http://localhost:${PORT}`],
+    origin: [`http://localhost:${port}`],
   })
 );
 
@@ -74,8 +74,9 @@ app.post('/contact', (req, res , next) => {
 })
 
 
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/client/build", "index.html"));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/build", "index.html"));
 });
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(port, () => console.log(`Server started on port ${port}`));

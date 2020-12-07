@@ -1,128 +1,168 @@
-.services-container {
+.services-container { 
   width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
   .services-info-grid {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 70px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap : 15px;
     .info-con {
+      transition: 0.5s;
+      cursor: pointer;
       width: 100%;
+      height: 400px;
+      padding: 25px;
+      border-radius: 26px;
       display: flex;
       flex-direction: column;
-      text-align: center;
+      position: relative;
+      img {
+        margin-top: 25px;
+      }
       h4 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         font-family: $headingFont;
+        color: $heading;
         margin: 15px 0;
       }
        p {
-         width: 80%;
          margin: 0 auto;
          margin-bottom: 30px;
          font-size: 1rem;
-         color: $textBlue ;
+         color: $text ;
        }
-       ul {
-         width: 100%;
-         margin: 0 auto;
-         display: flex;
-         flex-direction: column;
-        list-style: none; 
-         li {
-           color: $textBlue;
-         }
-       }
-
-      ul li::before {
-        content: "\2022";  /* \2022 is the CSS Code/unicode for a bullet */
-        color: $mainColor; 
-        font-weight: bold;
-        display: inline-block; 
-        width: 1em; 
-        margin-left: -1em; 
-      }
       button {
-         background-color: $lightBlue;
+         background-color: $background;
          padding: 10px 0;
          border: none;
-         border-radius: 5px;
+         border-radius: 12px;
          color: white;
          font-weight: 400;
          font-size: 1rem;
          text-decoration: none;
-         margin: auto;
-         margin-top: 50px;
+         margin: 0 auto;
+         margin-top: auto;
+         margin-bottom: 25px;
+         justify-self: flex-start;
          width: 70%;
          cursor: pointer;
          outline: none;
         font-family: "Work Sans" , sans-serif;
-
+        transition: 0.3s;
       }
+      button:hover {
+        background-color: $buttonHover;
+        color: $background;
+      }
+    }
+    .info-con:hover {
+     box-shadow : 2px 4px 30px rgba(29,32,126,0.17);
     }
   }
   .service-button-con {
-    width: 50%;
+    width: 100%;
     height: 40px;
-    margin-top: 150px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     margin-left: auto;
     display: flex;
     .active-service {
-      background-color: $lightBlue;
+      background: none;
       color: white;
+      border-bottom: 2px solid white; 
     }
     button {
-        //  padding: 10px 0;
          border: none;
-         border-radius: 5px;
+         border-radius: 0px;
          font-weight: 400;
          font-size: 1rem;
          text-decoration: none;
-         width: 150px;
          cursor: pointer;
          outline: none;
          margin: 0 auto;
          text-align: center;
-         background-color: white;
-         color: $mainColor;
+         background: none;      
+         color: $background;
          font-family: $headingFont;
-         
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         width: 170px;
     }
   }
   .services-display {
     width: 100%;
-    height: 450px; 
-    border-radius: 5px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.18);
-    background-color: white;
+    height: 100%; 
     margin: 0 auto;
+    margin-top : 200px;
     display: flex;
-    padding: 50px;
+    flex-direction: column;
+    padding-top: 15px;
+    padding-bottom: 25px;
     z-index: 10;
-    .left-con {
-      width: 30%;
+    position: relative;
+    .background {
+      position: absolute;
+      top: 0;
+      left: -50vw;
+      width: 150vw;
+      height: 100%;
+      background-color: $heading;
+      z-index: -5;
+    }
+    .hex-left {
+      position: absolute;
+      top: -240px;
+      left: -570px;
+    }
+    .hex-right {
+      position: absolute;
+      top: 0px;
+      right: -600px;
+    }
+    .divder-line {
+      height: 70%;
+      width: 3px;
+      background-color: white;
+      border-radius: 25px;
+      margin-right: 50px;
+    }
+    .service-watermark {
+      position: relative;
       img {
-        width: 100%;
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        width: 180px;
+        opacity: 0.1;
       }
     }
-    .right-con {
-      width: 70%;
-     padding-left: 50px;
+    .service-content {
+      display: flex;
+      width: 100%;
+
+    .right-con , .left-con {
+      width: 40%;
+      padding-right: 50px ;
      h5 {
-       font-size: 1.2rem;
+       font-size: 1.5rem;
+        font-weight: 600;
        margin-bottom: 15px;
        font-family: $headingFont;
+       color: white;
      }
      p {
       font-size: 1rem;
+      font-weight: 400;
+      line-height: 26px;
       margin-bottom: 50px;
-      color: $textBlue;
+      color: $text;
+      color: white;
      }
      a {
-      background-color: $orange;
+      background-color: $background;
       padding: 10px 40px;
       border: none;
       border-radius: 5px;
@@ -134,154 +174,99 @@
       cursor: pointer;
      }
     }
+   }
   } 
   .scroll-ref {
     width: 100%;
-    height: 100px;
+    height: 10px;
   }
 
 }
 @media (max-width: 414px ) {
   .services-container {
     .services-info-grid {
-      margin-top: 80px;
-      margin-bottom: 100px;
       grid-template-columns: 1fr;
       gap : 30px;
-
       .info-con {
-        img {
-          display: none;
-        }
+        width: 300px;
+        height: 250px;
+        box-shadow : 2px 4px 30px rgba(29,32,126,0.17);
+        margin: auto;
         h4 {
-          display: none;
+          margin-left: auto;  margin-right: auto;
         }
         p {
-          display: none;
+              display: none;
         }
-        ul {
-          display: none
-        }
-        button {
-          font-size: 1.5rem;
-          margin: 0 auto;
-        }
+      }
+     }
 
-        #design-btn {
-          background-color: $orange;
-        }
-        #cms-btn {
-          background-color: #FAE037;
-          color: $mainColor;
-        }
-      }
-    }
-    .service-button-con {
-      width: 100%;
-      button {
-        color : $mainColor;
-        font-size: 1.1rem;
-      }
-      .active-service {
-        background: none;
-        border-radius: 0;;
-        color: $lightBlue;
-        border-bottom: 2px solid $lightBlue;
-
-      }
-    }
+    // .service-button-con {
+    //   margin-top: 130px ;
+    //   margin-bottom: 30px;
+    //   }
     .services-display {
       flex-direction: column;
       height: 100%;
       padding: 30px; 
-      .left-con {
-        width: 100%;
-        display: flex;
-        img {
-          width: 80%;
-          margin: 0 auto;
-        }
+      .hex-left, .hex-right {
+      display: none;
       }
-      .right-con {
+      .service-content {
+      .left-con, .right-con {
         width: 100%;
         padding: 0;
-        display: flex;
-        flex-direction: column;
-        h5 {
-          margin: 25px auto;
-          text-align: center;
-          font-size: 1.5rem;
-        }
-        a { 
-          margin: 0 auto;
-          margin-bottom: 25px;
-        }
+      }
+      .divder-line {
+        display: none;
       }
     }
     .scroll-ref {
       width: 100%;
       height: 10px;
     }
+    .service-watermark {
+      position: absolute;
+      top: -400px;
+      right: -170px;
+    }
+  }
  }
 }
 
 
-@media (min-width: 415px ) and (max-width: 786px) {
+@media (min-width: 415px ) and (max-width: 577px) {
   .services-container {
     .services-info-grid {
-      margin-top: 80px;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(1,1fr);
       gap : 30px;
-// border: 2px solid black;
-// height: calc(100vh - 80px);
       .info-con {
-        img {
-          display: none;
-        }
+        width: 300px;
+        height: 250px;
+        box-shadow : 2px 4px 30px rgba(29,32,126,0.17);
+        margin: auto;
         h4 {
-          display: none;
+          margin-left: auto;  margin-right: auto;
         }
         p {
-          display: none;
-        }
-        ul {
-          display: none
-        }
-        button {
-          font-size: 1.5rem;
-          margin: 0 auto;
-        }
-
-        #design-btn {
-          background-color: $orange;
-        }
-        #cms-btn {
-          background-color: #FAE037;
-          color: $mainColor;
+              display: none;
         }
       }
     }
-    .service-button-con {
-      width: 100%;
-      button {
-        color : $mainColor;
-        font-size: 1.1rem;
-      }
-      .active-service {
-        background: none;
-        border-radius: 0;;
-        color: $lightBlue;
-        border-bottom: 2px solid $lightBlue;
-
-      }
-    }
+    // .service-button-con {
+    //   margin-top: 130px ;
+    //   margin-bottom: 30px;
+    //   }
     .services-display {
       flex-direction: column;
       height: 100%;
       padding: 30px; 
+      .hex-left, .hex-right {
+      display: none;
+      }
+      .service-content {
       .left-con {
         width: 100%;
-        display: flex;
         img {
           width: 80%;
           margin: 0 auto;
@@ -289,23 +274,75 @@
       }
       .right-con {
         width: 100%;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        h5 {
-          margin: 25px auto;
-          text-align: center;
-          font-size: 1.5rem;
-        }
-        a { 
-          margin: 0 auto;
-          margin-bottom: 25px;
-        }
       }
+      .divder-line {
+        display: none;
+      }
+    }
     }
     .scroll-ref {
       width: 100%;
       height: 10px;
+    }
+    .service-watermark {
+      position: absolute;
+      top: -330px;
+      right: -250px;
+    }
+ }
+}
+@media (min-width: 578px ) and (max-width: 786px) {
+  .services-container {
+    .services-info-grid {
+      grid-template-columns: repeat(2,1fr);
+      gap : 30px;
+      .info-con {
+        width: 100%;
+        height: 250px;
+        box-shadow : 2px 4px 30px rgba(29,32,126,0.17);
+        margin: auto;
+        h4 {
+          margin-left: auto;  margin-right: auto;
+        }
+        p {
+              display: none;
+        }
+      }
+    }
+    // .service-button-con {
+    //   margin-top: 160px ;
+    //   }
+    .services-display {
+      flex-direction: column;
+      height: 100%;
+      padding: 30px; 
+      .hex-left, .hex-right {
+      display: none;
+      }
+      .service-content {
+      .left-con {
+        width: 100%;
+        img {
+          width: 80%;
+          margin: 0 auto;
+        }
+      }
+      .right-con {
+        width: 100%;
+      }
+      .divder-line {
+        display: none;
+      }
+    }
+    }
+    .scroll-ref {
+      width: 100%;
+      height: 10px;
+    }
+    .service-watermark {
+      position: absolute;
+      top: -450px;
+      right: -480px;
     }
  }
 }
@@ -313,30 +350,16 @@
 @media (min-width: 787px ) and (max-width: 1100px) {
   .services-container {
     .services-info-grid {
-      margin-bottom: 150px;
       .info-con {
-        img {
-          width: 60%;
-          margin: 0 auto;
-
-        }
-        ul {
-          display: none
-        }
-        button { 
-          margin-top: 15px;
+        height: 480px;
+        button {
+          width: 90%;
         }
       }
     }
-    .service-button-con {
-      width: 60%;
-    }
-    .services-display {
-      height: 100%;
-    }
-    .scroll-ref {
-      width: 100%;
-      height: 100px;
-    }
+    // .service-button-con {
+    //   margin-top: 150px ;
+    //   }
   }
 }
+  

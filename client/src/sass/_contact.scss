@@ -23,32 +23,70 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.18);
     h5 {
       margin: 5px auto;
-  
+      margin-bottom: 15px;
       font-size: 1.3rem;
       font-weight: 700;
       font-family: $headingFont;
+      color: $heading;
     }
     span {
       display: flex;
       flex-direction: column;
       width: 80%;
       margin: 5px auto;
-      label {
-        font-size: 1rem;
-        font-weight: 500;
-        font-family: $headingFont;
-        margin-left: 5px;
-        margin-bottom: 3px;
+
+      .label-wrapper {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        label {
+          font-size: 1rem;
+          font-weight: 500;
+          font-family: $headingFont;
+          color: $heading;
+        }
+        .asterix {
+         margin-left: auto;
+         font-size: 1.2rem;
+         font-weight: 600;
+         text-align: center;
+         color: $background;
+         }
+         .validation {
+           margin:0;
+           margin-left: 10px;
+          font-size: 0.8rem;
+          font-weight: 400;
+          color: $validation;
+          text-align: left;
+          align-self: center;
+          display: none;
+        }
+        .show-validation {
+          display: block;
+          margin:0;
+          margin-left: 10px;
+         font-size: 0.8rem;
+         font-weight: 400;
+         color: $validation;
+         text-align: left;
+         align-self: center;
+        }
       }
+
       input , textarea { 
         background-color: #C5E1FD;
-        border: 2px $lightBlue solid;
+        border: 2px $background solid;
+        border: none;
         border-radius: 3px;
         padding: 8px 5px;
         font-size: 1rem;
         font-weight: 400;
         font-family: $headingFont;
         outline: none;
+      }
+      input:focus , textarea:focus {
+        border: 2px $background solid;
       }
       input::placeholder, textarea::placeholder {
         font-size: 1rem;
@@ -60,10 +98,17 @@
         resize: none;
         height: 150px;
       }
+      .input-correct {
+        border: 2px $background solid;
+      }
+      .input-incorrect {
+        background-color:#FDC5C5;
+        border: 2px $validation solid;
+      }
     }
     #submit {
       width: 80%;
-      background-color: $lightBlue;
+      background-color: $background;
       border: none;
       outline : none;
       margin: 15px auto;
@@ -73,21 +118,46 @@
       font-family: $headingFont;
       color: white;
       border-radius: 3px;
-      cursor: pointer  ;
+      cursor: pointer;
+      transition: 0.5s;
+    }
+    #submit:hover{
+      background-color: $buttonHover;
+      color: $background;
     }
   }
   .contact-info {
     box-shadow: none;
     span {
-  flex-direction: row;
-  align-items: center;
-  p {
-    font-size: 1.1rem;
-    font-weight: 500;
-  }
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15px;
+    img {
+      width: 40px;
+      margin-right: 14px;
+    }
+      p {
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
     }
     .social-wrapper {
       justify-content: center;
+      a {
+        margin: 0 7px;
+      
+        img {
+          margin: 0;
+          width: 50px;
+          cursor: pointer;
+          border-radius: 25px;
+          background-color: $background;
+          transition: 0.5s;
+        }
+      }
+      img:hover {
+        box-shadow : 2px 4px 30px rgba(29,32,126,0.50); 
+      }
     }
   }
 }
@@ -112,13 +182,13 @@
         span {
         width: 100%;
         }
-    }
-    }
-  }
-}
+      }
+     }
+   }
+ }
 }
 
-
+ 
 @media (min-width: 415px ) and (max-width: 786px) {
   .contact-container {
     .contact-flex {
@@ -138,9 +208,9 @@
         span {
         width: 100%;
         }
+      }
+     }
     }
-    }
-  }
   }
 }
 
@@ -148,7 +218,6 @@
   .contact-container {
     .contact-flex {
       margin-top: 20px;
-    //  flex-direction: column;
      .contact-left , .contact-right {
       width: 100%;
       form {
@@ -163,9 +232,8 @@
         span {
         width: 100%;
         }
+      }
+     }
     }
-    }
   }
-  }
-
-  }
+}

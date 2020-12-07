@@ -1,8 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, Fragment} from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
+import PropTypes from "prop-types";
+
+// Redux
+import { connect } from "react-redux";
+import { pageName } from "../../redux/actions/pageName";
+
 var counter;
-const Header = () => {
+const Header = ({page}) => {
 
   // State Variables : 
   //  Nav menu height
@@ -25,7 +31,6 @@ const Header = () => {
         setDisplay("flex");
         setSrc("/assets/icons/burger.svg");
         counter = 0;
-       
       }
       if(window.innerWidth <= 768 ) {
         setHeight("0px");
@@ -59,33 +64,53 @@ const Header = () => {
       counter = 0;
     }
   }
+  const lightLogo = (
+        <span className="logo">
+          <Link to="/">
+            <h2>Jay Lewis</h2>
+          </Link>
+          </span> 
+  )
+
+  const darkLogo = (
+        <span className="logo-dark">
+          <Link to="/">
+            <h2>Jay Lewis</h2>
+          </Link>
+        </span> 
+  )
 
   return (
    <header>
-     <span className="logo">
-       <Link to="/">
-       <h2>Jay Lewis</h2>
-       </Link>
-     </span>
-     <span className="burger-con">
-     <img src={burgerSrc} alt="Burger Menu - Open Navigation"    className="burger-menu"
-     onClick={openMenu}
-    style={{width: burgerWidth}}
-    />
-          </span>
-     <nav style={{height : height, display : display } }>
-       {/* <img class="close-cross"src="/assets/icons/cross.svg" alt="Cross"/> */}
-       <ul>
-       <li><NavLink to="/" activeClassName="active-link">Home</NavLink></li>
-         <li><NavLink to="/services" activeClassName="active-link">Services</NavLink></li>
-         <li><NavLink to="/portfolio" activeClassName="active-link">Portfolio</NavLink></li>
-         <li><NavLink to="/about" activeClassName="active-link">About</NavLink></li>
-         <li><NavLink to="/contact" id="contact-button">Contact</NavLink></li>
-       </ul>
-     </nav>
+       {page.page === "home" ?  lightLogo : darkLogo}
+
+        <span className="burger-con">
+          <img src={burgerSrc} alt="Burger Menu - Open Navigation"
+              className="burger-menu"
+              onClick={openMenu}
+              style={{width: burgerWidth}}/>          
+         </span>
+
+       <nav style={{height : height, display : display } }>
+        <ul className="darkLinks">
+          <li><NavLink exact to="/" activeClassName="active-link">Home</NavLink></li>
+          <li><NavLink exact to="/services" activeClassName="active-link-dark">Services</NavLink></li>
+          <li><NavLink exact to="/portfolio" activeClassName="active-link-dark">Portfolio</NavLink></li>
+          <li><NavLink exact to="/about" activeClassName="active-link-dark">About</NavLink></li>
+          <li><NavLink exact to="/contact" id="contact-button"><div className="link-background"></div> <span>Contact</span></NavLink></li>
+        </ul>
+      </nav>
    </header>
   )
 }
 
+Header.propTypes = {
+  page: PropTypes.object.isRequired,
+}
 
-export default Header;
+const mapStateToProps = (state) =>  ({
+  page : state.page
+})
+
+
+export default connect(mapStateToProps, {pageName})(Header);

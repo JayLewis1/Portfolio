@@ -1,2 +1,3 @@
 export const CHANGE_SERVICES = "CHANGE_SERVICES";
 export const CHANGE_PROJECT = "CHANGE_PROJECT";
+export const PAGE_NAME = "PAGE_NAME";

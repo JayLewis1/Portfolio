@@ -8,6 +8,10 @@ import {
 // Redux
 import { Provider } from 'react-redux';
 import store from "./redux/store";
+// Scroll component - once route has changed scroll to top
+import ScrollToTop from "./components/components/ScrollToTop";
+// Background Component
+// import Background from "./components/components/Background";
 // App components
 import Header from "./components/components/Header";
 import Footer from "./components/components/Footer";
@@ -19,20 +23,23 @@ import About from "./components/pages/About";
 import Contact from "./components/pages/Contact";
 
 function App() {
+  
   return (
     <Provider store={store}>
       <Router>
-        <div className="App">
+        <ScrollToTop />
+        <div className="App">         
+          {/* <Background /> */}
           <div className="app-container">
         <Header />
             <Switch>
               <Route path="/services">
                 <Services />
               </Route>
-              <Route path="/portfolio">
+              <Route  path="/portfolio">
                 <Portfolio />
               </Route>
-              <Route path="/about">
+              <Route  path="/about">
                 <About />
               </Route>
               <Route path="/contact">

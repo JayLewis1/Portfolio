@@ -4,13 +4,17 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 // Redux Actions
 import { changeServiceType } from "../../redux/actions/services";
+import { pageName } from "../../redux/actions/pageName";
 
 // Services components
 import Development from "./services/Development"
 import Design from "./services/Design"
 import Cms from "./services/Cms"
 
-const Services = ({serviceType , changeServiceType}) => {
+// Get in contact component
+import GetInContact from "../components/GetInContact";
+
+const Services = ({serviceType , changeServiceType, pageName}) => {
   // Declared serviceDisplay as new ref
   const serviceDisplay = useRef(null);
 
@@ -19,6 +23,7 @@ const Services = ({serviceType , changeServiceType}) => {
     // window.scrollTo(0, 0);
     // Update the document title using the browser API
     document.title = "Services - Jay Lewis";
+    pageName("");
   });
 
   const changeService = (e) => {
@@ -26,83 +31,64 @@ const Services = ({serviceType , changeServiceType}) => {
     // Pass the button's value to the redux function - set's the service state as the value
     changeServiceType(type)
     // Used ref to scroll to displat div into view when the service has been chosen - smooth scroll and center div in screen
-    serviceDisplay.current.scrollIntoView()
+   serviceDisplay.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   }
 
     // Depending on what service is set into state assign the active button class to the services buttons
     switch (serviceType.type) {
       case "development" :
               var develop =  "active-service";
+              var devShadow = "0 2px 20px rgba(0,0,0,0.18)"
               break;
       case "design" :
               var design =  "active-service";
+              var designShadow = "0 2px 20px rgba(0,0,0,0.18)";
               break;
       case "cms" :
               var cms =  "active-service";
+              var cmsShadow = "0 2px 20px rgba(0,0,0,0.18)";
               break;
            default: 
               break;
     }
   
+  
+
   return (
    <div className="services-container">
-         <div className="yellow-background">
-        <img src="/assets/illustrations/page-background-yellow.svg" alt="Background Bubble Yellow"/>
-      </div>
-      <div className="red-background">
-        <img src="/assets/illustrations/page-background-red.svg" alt="Background Bubble Red"/>
-      </div>
-  <h4 className="page-title">My Services</h4>
+    <h4 className="page-title">My Services</h4>
       <div className="services-info-grid">
-        <div className="info-con">
-          <img src="/assets/illustrations/development.svg" alt="Development Illustration"/>
+        <div className="info-con" style={{boxShadow: devShadow}}>
+          <img src="/assets/icons/develop-icon.svg" alt="Development Illustration"/>
           <h4>Development</h4>
-          <p>Lorem ipsum dolor sit amet,conctetur adipis Cras eleifend, risus ac </p>
-          <ul>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-          </ul>
-          <button value="development" id="development-btn" onClick={(e) => changeService(e)}>Learn More</button>
+          <p>With the use of modern technologies, such as <span className="bold">React</span>, I can create a beautifully built website or web application that fits your needs.</p>
+       
+          {serviceType.type === "development" &&  <button value="development" id="development-btn" onClick={(e) => changeService(e)}>Scroll Down</button>}
+          {serviceType.type !== "development" &&  <button value="design" id="design-btn" onClick={(e) => changeService(e)}>Learn More</button>}
+
         </div>
-        <div className="info-con">
-          <img src="/assets/illustrations/design.svg" alt="Design Illustration"/>
+        <div className="info-con" style={{boxShadow: designShadow}}>
+          <img src="/assets/icons/design-icon.svg" alt="Design Illustration"/>
           <h4>Design</h4>
-          <p>Lorem ipsum dolor sit amet,conctetur adipis Cras eleifend, risus ac </p>
-          <ul>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-          </ul>
-          <button  value="design" id="design-btn" onClick={(e) => changeService(e)}>Learn More</button>
+          <p>With beautiful design we create a refreshing look for you on the internet.</p>
+
+          {serviceType.type === "design" &&  <button  value="design" id="design-btn" onClick={(e) => changeService(e)}>Scroll Down</button>}
+          {serviceType.type !== "design" &&  <button  value="design" id="design-btn" onClick={(e) => changeService(e)}>Learn More</button>}
+         
         </div>
-        <div className="info-con">
-          <img src="/assets/illustrations/cms.svg" alt="CMS Illustration"/>
+        <div className="info-con" style={{boxShadow: cmsShadow}}>
+          <img src="/assets/icons/cms-icon.svg" alt="CMS Illustration"/>
           <h4>CMS</h4>
-          <p>Lorem ipsum dolor sit amet,conctetur adipis Cras eleifend, risus ac </p>
-          <ul>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-          </ul>
-          <button value="cms" id="cms-btn" onClick={(e) => changeService(e)}>Learn More</button>
+          <p>I supply a bespoke <span className="bold">Content Management System</span> for you to update your site as you please. I Also suppy the option of Wordpress</p>
+
+
+          {serviceType.type === "cms" && <button value="cms" id="cms-btn" onClick={(e) => changeService(e)}>Scroll Down</button>}
+          {serviceType.type !== "cms" && <button value="cms" id="cms-btn" onClick={(e) => changeService(e)}>Learn More</button>}
+
         </div>
       </div>
+     
+      <div className="services-display">
       <div className="service-button-con">
         <button 
           className={develop} 
@@ -117,21 +103,32 @@ const Services = ({serviceType , changeServiceType}) => {
          value="cms" 
          onClick={(e) => changeService(e)}>CMS</button>
       </div>
-      <div className="services-display" ref={serviceDisplay} >
+        <div className="background"></div>
+        <div className="hex-left">
+                <img src="/assets/watermarks/hexagon-left.svg" alt="Hexagon"/>
+        </div>
+        <div className="hex-right">
+          <img src="/assets/watermarks/hexagon-right.svg" alt="Hexagon"/>
+        </div>
+        <div className="service-content">
         {serviceType.type === "development" && <Development />}
         {serviceType.type === "design" && <Design />}
         {serviceType.type === "cms" && <Cms />}
+        </div>
       </div>
+      <div  className="scroll-ref" ref={serviceDisplay}></div>
+      <GetInContact />
    </div>
   )
 }
 
 Services.propTypes = {
   service : PropTypes.object,
+  changeServiceType : PropTypes.func.isRequired
 }
 
 const mapStateToProps =  (state) => ({
   serviceType : state.service,
 })
 
-export default connect(mapStateToProps, {changeServiceType})(Services);
+export default connect(mapStateToProps, {changeServiceType, pageName})(Services);

@@ -6,21 +6,35 @@ header {
    display: flex;
    align-items: center;
    justify-content: center;
-  //  width: 200px;
    height: 80px;
    a {
     text-decoration: none;
-    color: $mainColor;
+    color: white;
     h2 {
       font-size: 1.5rem;
       font-weight: 700;
       font-family: $headingFont;
-
     }
    }
  }
+ .logo-dark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  a {
+   text-decoration: none;
+   color: white;
+   h2 {
+     font-size: 1.5rem;
+     font-weight: 700;
+     font-family: $headingFont;
+     color: $heading;
+   }
+  }
+ }
  .burger-con {
-  display: none;
+   display: none;
    align-items: center;
    justify-content: center;
    margin: auto 0;
@@ -30,7 +44,6 @@ header {
    z-index: 10;
  .burger-menu {
    cursor: pointer;
-
  }
 }
  nav {
@@ -39,7 +52,25 @@ header {
    display: flex;
    align-items: center;
    justify-content: center;
-
+   .darkLinks 
+   {
+    a:after {    
+      background: none repeat scroll 0 0 transparent;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 2px;
+      left: 50%;
+      position: absolute;
+      background: $background ;
+      transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      width: 0;
+    }
+    a:hover:after { 
+      width: 100%; 
+      left: 0; 
+    }
+   }
    ul {
      display: flex;
      margin-left: auto;
@@ -47,7 +78,7 @@ header {
        list-style-type: none;
        margin-left: 20px; 
       a {
-        color: $mainColor;
+        color: $heading;
         text-decoration: none;
         font-size: 1.1rem;
         font-weight: 400;
@@ -63,7 +94,7 @@ header {
         height: 2px;
         left: 50%;
         position: absolute;
-        background: $lightBlue ;
+        background: white ;
         transition: width 0.3s ease 0s, left 0.3s ease 0s;
         width: 0;
       }
@@ -72,32 +103,59 @@ header {
         left: 0; 
       }
       .active-link {
-        color: $lightBlue;
-        // border-bottom: 2px $lightBlue solid;
+        color: white;
       }
       .active-link:hover:after {
         width: 0; 
       }
+      .active-link-dark {
+        color: $background;
+      }
       }
       #contact-button {
-        background-color: $lightBlue;
+        background-color: $heading;
+        // border: 2px $heading solid;
         padding: 7px 35px;
-        border-radius: 5px;
+        border-radius: 10px;
         color: white;
         font-weight: 400;
         text-decoration: none;
+        position: relative;
+        transition: 0.5s;
+        .link-background {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0%; 
+          height: 100%;
+          border-radius: 8px;
+          background-color: $text ;
+           z-index: -1;
+          transition: 0.5s;
+        }
+        span {
+          z-index: 5;
+        }
+      }
+      #contact-button:hover .link-background {
+        width: 100%;
+        color: white
+        
       }
       #contact-button:hover {
+      background: none;
+        
+      }
+      #contact-button:hover span {
+      z-index: 5;
+      }
+      #contact-button:hover:after {
         box-shadow: 0 0 10px rgba(0,0,0,0.18);
+        width: 0; 
       }
    }
  }
 }
-
-// @media (min-width: 415px ) and (max-width: 768px) {
-  
-
-// }
 
 @media (max-width: 768px ) {
 header {
@@ -116,7 +174,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #399AF8;
+  background-color: $heading;
   padding: 25px 0;
   box-shadow: 0 2px 10px rgba(0,0,0,0.18);
   text-align: center;
@@ -124,7 +182,6 @@ header {
   padding: 0;
   z-index: 5;
   transition: height 0.5s;
-  // display: none;
   .close-cross { 
     position: absolute;
     top: 30px;
@@ -146,7 +203,7 @@ header {
     }
     #contact-button {
       background: none;
-      padding:  0;
+      padding: 0;
       border-radius: 5px;
       color: white;
       font-weight: 400;
@@ -160,19 +217,11 @@ header {
       box-shadow: none;
     }
     .active-link {
-      color: $mainColor;
+      color: $background;
     }
    }
   }
  }
 }
 }
-
-// @media (min-width: 415px ) {
-// header {
-//   nav{
-//     width: 100%;;
-//   }
-// }
-// }
 
